@@ -1,7 +1,7 @@
 project:
   type: website
   title: "Applied Mathematics in the Age of AI"
-  
+  output-dir: docs
 website:
   navbar:
     title: "Data Science for Mathematicians"
@@ -19,7 +19,7 @@ website:
         
     right:
       - icon: github
-        href: https://github.com/YourUsername/YourRepoName # **UPDATE THIS LINK**
+        href: https://github.com/sijuswamyresearch/Data-Science-Course # **UPDATE THIS LINK**
   page-footer:
     left: "Computational Data Science for Mathematicians"
     right: "© 2025 Siju SWamy"

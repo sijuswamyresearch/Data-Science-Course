@@ -1,0 +1,170 @@
+[
+  {
+    "objectID": "index.html#session-overview",
+    "href": "index.html#session-overview",
+    "title": "Applied Mathematics in the Age of AI",
+    "section": "Session Overview",
+    "text": "Session Overview\nThis intensive 4-hour session is designed for mathematics PG students and faculty to rigorously explore the discipline of Data Science through the lens of Applied Mathematics and modern computation.\nWe will move beyond a high-level overview to establish a strong theoretical and practical foundation, demonstrating how core mathematical principles—from Linear Algebra and Optimization to Probability and Statistics—form the engine of today’s most powerful AI systems."
+  },
+  {
+    "objectID": "index.html#target-audience",
+    "href": "index.html#target-audience",
+    "title": "Applied Mathematics in the Age of AI",
+    "section": "Target Audience",
+    "text": "Target Audience\nPostgraduate Students in Mathematics, Statistics, and related fields.\nFaculty members seeking to integrate modern Data Science curriculum into their teaching and research."
+  },
+  {
+    "objectID": "index.html#session-mode",
+    "href": "index.html#session-mode",
+    "title": "Applied Mathematics in the Age of AI",
+    "section": "Session Mode",
+    "text": "Session Mode\nThe session is structured in an interactive mode, blending in-depth mathematical derivations with live computational demonstrations using industry-standard tools (e.g., Python/R environments).\nWe will emphasize:\n\nMathematical Derivations: Understanding the why behind algorithms.\nComputational Execution: Translating theory into working code.\nCritical Analysis: Evaluating model performance based on mathematical metrics."
+  },
+  {
+    "objectID": "index.html#key-learning-outcome",
+    "href": "index.html#key-learning-outcome",
+    "title": "Applied Mathematics in the Age of AI",
+    "section": "Key Learning Outcome",
+    "text": "Key Learning Outcome\nParticipants will gain a clear understanding of how their mathematical expertise directly translates into practical, state-of-the-art computational modeling, identifying immediate pathways to apply these tools in academic research and industry.\nNavigate to the Key Topics & Schedule tab to see the detailed breakdown of the 4-hour session."
+  },
+  {
+    "objectID": "02-ml-core.html#introduction",
+    "href": "02-ml-core.html#introduction",
+    "title": "Module 2 — Machine Learning Core",
+    "section": "Introduction",
+    "text": "Introduction\nMachine Learning (ML) is a scientific discipline that enables systems to learn patterns from data and make decisions without explicitly defined rules. From a mathematical perspective, machine learning is grounded in optimization theory, statistical inference, multivariable calculus, probability, linear algebra, and functional analysis.\nThis module aims to connect the abstract mathematical foundations with computational implementations, guiding mathematicians to appreciate machine learning not only as an applied tool, but as a modern extension of optimization and function approximation theory."
+  },
+  {
+    "objectID": "02-ml-core.html#what-is-machine-learning",
+    "href": "02-ml-core.html#what-is-machine-learning",
+    "title": "Module 2 — Machine Learning Core",
+    "section": "What is Machine Learning?",
+    "text": "What is Machine Learning?\nMachine learning seeks to approximate an unknown functional relationship between input features \\(X\\) and outputs \\(Y\\), based on observed sample data. Formally, given: \\[\nX = \\{x_1, x_2, \\dots, x_n\\} \\subset \\mathbb{R}^d,\\qquad\nY = \\{y_1, y_2, \\dots, y_n\\}\n\\]\nThe goal is to learn a function: \\[\nf_\\theta : \\mathbb{R}^d \\rightarrow Y\n\\]\nsuch that the prediction error is minimized: \\[\n\\theta^\\* = \\arg \\min_{\\theta} L(f_\\theta(X), Y)\n\\]\nwhere \\(L\\) is a loss function, representing the discrepancy between predictions and truth."
+  },
+  {
+    "objectID": "02-ml-core.html#key-types-of-machine-learning",
+    "href": "02-ml-core.html#key-types-of-machine-learning",
+    "title": "Module 2 — Machine Learning Core",
+    "section": "Key Types of Machine Learning",
+    "text": "Key Types of Machine Learning\n\n\n\n\n\n\n\n\nType\nDescription\nExample\n\n\n\n\nSupervised Learning\nLearn mapping from features to target labels\nClassification & Regression\n\n\nUnsupervised Learning\nLearn patterns and structure without labels\nClustering & PCA\n\n\nReinforcement Learning\nLearn behaviour through rewards\nRobotics & Game AI"
+  },
+  {
+    "objectID": "02-ml-core.html#role-of-mathematics-in-machine-learning",
+    "href": "02-ml-core.html#role-of-mathematics-in-machine-learning",
+    "title": "Module 2 — Machine Learning Core",
+    "section": "Role of Mathematics in Machine Learning",
+    "text": "Role of Mathematics in Machine Learning\n\n\n\n\n\n\n\nMathematical Component\nContribution\n\n\n\n\nMultivariable Calculus\nOptimization through gradients and updates\n\n\nLinear Algebra\nVectorization, matrix operations, feature transformations\n\n\nProbability & Statistics\nInference, uncertainty modelling, distributions\n\n\nOptimization Theory\nConvergence guarantees and algorithm evaluation\n\n\nMeasure Theory\nFormal understanding of learning over spaces\n\n\n\nMachine learning problems are fundamentally optimization problems in high-dimensional spaces."
+  },
+  {
+    "objectID": "02-ml-core.html#gradient-descent-core-optimization-engine",
+    "href": "02-ml-core.html#gradient-descent-core-optimization-engine",
+    "title": "Module 2 — Machine Learning Core",
+    "section": "Gradient Descent — Core Optimization Engine",
+    "text": "Gradient Descent — Core Optimization Engine\nThe optimization goal is to find parameters \\(\\theta\\) that minimize the loss function \\(L(\\theta)\\): \\[\n\\theta^\\* = \\arg \\min_{\\theta} L(\\theta)\n\\]\nGradient descent updates parameters iteratively: \\[\n\\theta_{k+1} = \\theta_k - \\eta \\nabla_\\theta L(\\theta_k)\n\\]\nWhere: - \\(\\eta\\) — learning rate (step size) - \\(\\nabla_\\theta L\\) — gradient of loss with respect to parameters\n\nExample Loss Function (Mean Squared Error)\n\\[\nL(\\theta) = \\frac{1}{n} \\sum_{i=1}^{n} (y_i - f_\\theta(x_i))^2\n\\]\nRegularization helps avoid overfitting by penalizing overly complex models:\n\n\n\\(L_2\\) Regularization:\n\\[\nL(\\theta) = \\frac{1}{n} \\sum_{i=1}^{n}(y_i - f_\\theta(x_i))^2 + \\lambda \\|\\theta\\|_2^2\n\\]\n\n\n\\(L_1\\) Regularization:\n\\[\nL(\\theta) = \\frac{1}{n} \\sum_{i=1}^{n}(y_i - f_\\theta(x_i))^2 + \\lambda \\|\\theta\\|_1\n\\]"
+  },
+  {
+    "objectID": "02-ml-core.html#linear-algebra-in-machine-learning",
+    "href": "02-ml-core.html#linear-algebra-in-machine-learning",
+    "title": "Module 2 — Machine Learning Core",
+    "section": "Linear Algebra in Machine Learning",
+    "text": "Linear Algebra in Machine Learning\nMachine learning models rely heavily on matrix-vector operations:\n\\[\ny = X\\theta\n\\]\nFor \\(n\\) samples and \\(d\\) features:\n\\[\nX \\in \\mathbb{R}^{n \\times d},\\quad \\theta \\in \\mathbb{R}^d,\\quad y \\in \\mathbb{R}^n\n\\]\nDimensionality reduction & feature extraction operate via eigenvalue decomposition: \\[\nA v = \\lambda v\n\\]\nThis provides the basis for PCA and optimization-based feature representation."
+  },
+  {
+    "objectID": "02-ml-core.html#example-ml-task-iris-classification",
+    "href": "02-ml-core.html#example-ml-task-iris-classification",
+    "title": "Module 2 — Machine Learning Core",
+    "section": "Example ML Task — Iris Classification",
+    "text": "Example ML Task — Iris Classification\nWe now apply machine learning to classify the three flower species using logistic regression.\n\n\nCode\nfrom sklearn.datasets import load_iris\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.linear_model import LogisticRegression\nfrom sklearn.metrics import accuracy_score, confusion_matrix\nimport pandas as pd\n\niris = load_iris()\nX = iris.data\ny = iris.target\n\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)\n\nmodel = LogisticRegression(max_iter=200)\nmodel.fit(X_train, y_train)\n\ny_pred = model.predict(X_test)\n\nprint(\"Accuracy:\", accuracy_score(y_test, y_pred))\nprint(\"Confusion Matrix:\\n\", confusion_matrix(y_test, y_pred))\n\n\nAccuracy: 1.0\nConfusion Matrix:\n [[10  0  0]\n [ 0  9  0]\n [ 0  0 11]]"
+  },
+  {
+    "objectID": "01-eda-math.html#introduction",
+    "href": "01-eda-math.html#introduction",
+    "title": "Module 1 — Data Foundations and Exploratory Data Analysis",
+    "section": "Introduction",
+    "text": "Introduction\nModern scientific research and technological innovation are fundamentally data–driven. Across disciplines—engineering, healthcare, economics, environmental sciences, and artificial intelligence—data is the essential raw material that fuels knowledge creation, modelling, and decision making.\nThis introductory module connects mathematical theory with computational practices to prepare mathematicians for research and professional environments where quantitative reasoning and computational thinking play a central role."
+  },
+  {
+    "objectID": "01-eda-math.html#what-is-data",
+    "href": "01-eda-math.html#what-is-data",
+    "title": "Module 1 — Data Foundations and Exploratory Data Analysis",
+    "section": "What is Data?",
+    "text": "What is Data?\nData refers to quantified measurements, observations, records or symbols used to describe objects, events, behaviours, or natural phenomena.\nIn a formal mathematical sense, data can be considered as elements of a set \\[\nX = \\{x_1, x_2, \\dots, x_n\\} \\subset \\mathbb{R}^d\n\\] where each \\(x_i\\) is a \\(d\\)-dimensional vector representing measurable features.\nExamples:\n\nA medical dataset: \\(x_i = (\\text{age}, \\text{height}, \\text{blood pressure})\\)\nThe Iris flower dataset: \\(x_i = (\\text{sepal length}, \\text{sepal width}, \\text{petal length}, \\text{petal width})\\)"
+  },
+  {
+    "objectID": "01-eda-math.html#key-steps-in-data-analysis",
+    "href": "01-eda-math.html#key-steps-in-data-analysis",
+    "title": "Module 1 — Data Foundations and Exploratory Data Analysis",
+    "section": "Key Steps in Data Analysis",
+    "text": "Key Steps in Data Analysis\n\n\n\n\n\n\n\nStep\nDescription\n\n\n\n\nData Collection\nObtaining measurements from instruments, surveys, sensors, or sources\n\n\nData Cleaning\nHandling missing, noisy, duplicated, or inconsistent values\n\n\nData Transformation\nScaling, encoding, normalization and feature engineering\n\n\nExploratory Data Analysis (EDA)\nStatistical summarization and visual discovery of patterns\n\n\nModelling and Interpretation\nMathematical modelling, inference, prediction, and optimization\n\n\nKnowledge Communication\nReports, dashboards, research papers, deployment"
+  },
+  {
+    "objectID": "01-eda-math.html#data-analysis-vs-data-analytics",
+    "href": "01-eda-math.html#data-analysis-vs-data-analytics",
+    "title": "Module 1 — Data Foundations and Exploratory Data Analysis",
+    "section": "Data Analysis vs Data Analytics",
+    "text": "Data Analysis vs Data Analytics\n\n\n\n\n\n\n\nData Analysis\nData Analytics\n\n\n\n\nUnderstanding and interpreting datasets\nUsing data to support decisions and predictions\n\n\nInvestigates relationships and structure\nFocuses on outcomes and business/operational value\n\n\nMore mathematical & theory oriented\nMore application & tool oriented\n\n\nExample: hypothesis testing\nExample: customer churn prediction"
+  },
+  {
+    "objectID": "01-eda-math.html#role-of-mathematics-statistics-in-data-analytics",
+    "href": "01-eda-math.html#role-of-mathematics-statistics-in-data-analytics",
+    "title": "Module 1 — Data Foundations and Exploratory Data Analysis",
+    "section": "Role of Mathematics & Statistics in Data Analytics",
+    "text": "Role of Mathematics & Statistics in Data Analytics\nMathematics provides:\n\nAbstract structures (sets, functions, spaces, topology)\nOptimization frameworks for machine learning algorithms\nLinear algebra for vectorized computation & dimensionality reduction\nMeasure theory & probability for uncertainty modelling\nInformation theory for data compression and learning\n\nStatistics provides:\n\nSummaries, inference, estimation & hypothesis validation\nUnderstanding variability and uncertainty\nFoundations of experimental design and sampling"
+  },
+  {
+    "objectID": "01-eda-math.html#perspective-shift-for-the-modern-mathematician-strang2019linear",
+    "href": "01-eda-math.html#perspective-shift-for-the-modern-mathematician-strang2019linear",
+    "title": "Module 1 — Data Foundations and Exploratory Data Analysis",
+    "section": "Perspective Shift for the Modern Mathematician (Strang et al. (2019))",
+    "text": "Perspective Shift for the Modern Mathematician (Strang et al. (2019))\nTo contribute effectively to data-centric scientific environments, a mathematician must:\n\nMove from closed-form solutions to computational approximation and simulation\nAccept empirical validation instead of purely symbolic proof\nDevelop algorithmic thinking and computational tool fluency\nTranslate abstract models into real-world actionable insight\nEmbrace interdisciplinary collaboration integrating computing and domain knowledge"
+  },
+  {
+    "objectID": "01-eda-math.html#mathematical-formalism",
+    "href": "01-eda-math.html#mathematical-formalism",
+    "title": "Module 1 — Data Foundations and Exploratory Data Analysis",
+    "section": "Mathematical Formalism",
+    "text": "Mathematical Formalism\n\nVector Space View of Data\n\\[\nX \\subset \\mathbb{R}^d,\\qquad x_i = (x_{i1}, x_{i2}, \\dots, x_{id})\n\\]\n\n\nNorm-based Measurement\n\\[\n\\|x\\|_1 = \\sum |x_i|,\\qquad \\|x\\|_2 = \\left( \\sum x_i^2 \\right)^{1/2}\n\\]\n\n\nMeasure Theoretic View\n\\[\n(X, \\Sigma, \\mu)\n\\]\nwhere:\n\n\\(X\\) — dataset/sample space\n\\(\\Sigma\\) — σ-algebra of measurable subsets\n\\(\\mu\\) — measure assigning size/probability"
+  },
+  {
+    "objectID": "01-eda-math.html#understanding-exploratory-data-analysis-eda",
+    "href": "01-eda-math.html#understanding-exploratory-data-analysis-eda",
+    "title": "Module 1 — Data Foundations and Exploratory Data Analysis",
+    "section": "Understanding Exploratory Data Analysis (EDA)",
+    "text": "Understanding Exploratory Data Analysis (EDA)\n\nWhat is EDA?\nExploratory Data Analysis (EDA) is the process of systematically examining a dataset to discover patterns, identify anomalies, test assumptions, and validate hypotheses using summary statistics and graphical representations. It is the first and most essential step in any analytical or machine learning workflow.\nIn simple terms, EDA tells us the story hidden inside the data.\n\n\nWhy is EDA Important?\nEDA is crucial because:\n\nIt helps understand the structure and characteristics of a dataset before formal modelling.\nIt reveals hidden relationships among variables.\nIt identifies noise, outliers, missing values, and inconsistencies.\nIt guides the selection of appropriate statistical or machine learning models.\nIt prevents incorrect assumptions that could lead to misleading conclusions.\n\nWithout EDA, modelling becomes guesswork rather than a scientifically grounded analysis.\n\n\nCommon Statistical Tools Used in EDA\n\n\n\nStatistical Method\nPurpose\n\n\n\n\nMean, Median, Mode\nCentral behaviour of data\n\n\nVariance, Standard Deviation\nSpread or variability\n\n\nQuantiles & IQR\nRange and distribution behaviour\n\n\nCorrelation measures\nStrength and direction of relationships\n\n\nCovariance matrices\nLinear dependence structure\n\n\nNormality tests\nDistributional assumptions\n\n\n\n\n\nCommon Visualization Tools in EDA\n\n\n\nPlot Type\nPurpose\n\n\n\n\nHistogram\nDistribution and skewness\n\n\nBoxplot\nOutliers and spread\n\n\nScatter Plot\nRelationship between paired variables\n\n\nPairplot (matrix plot)\nAll relationships in multivariate dataset\n\n\nHeatmap\nCorrelation structure\n\n\nViolin Plot / KDE plot\nShape of distribution\n\n\n\nData visualization converts numeric tables into human-understandable patterns and evidence.\n\n\nHow EDA Helps at Different Levels\n\n\n\n\n\n\n\nStakeholder\nBenefit\n\n\n\n\nCommon Individual\nGains clarity about dataset behaviour without technical depth\n\n\nData Scientist / Analyst\nLearns structure, prepares features, selects models, validates assumptions\n\n\nProfessional Decision Maker / Policy Planner\nMakes informed strategic decisions based on evidence instead of intuition\n\n\n\nReal-world example:\n\nIn healthcare analytics, EDA may reveal that a specific symptom correlates strongly with disease severity.\nDecision makers can deploy targeted interventions or allocate resources precisely.\n\nThus, EDA transforms raw data into insight, and insight into action."
+  },
+  {
+    "objectID": "01-eda-math.html#the-iris-dataset-historical-and-scientific-importance",
+    "href": "01-eda-math.html#the-iris-dataset-historical-and-scientific-importance",
+    "title": "Module 1 — Data Foundations and Exploratory Data Analysis",
+    "section": "The Iris Dataset — Historical and Scientific Importance",
+    "text": "The Iris Dataset — Historical and Scientific Importance\nBefore conducting the exploratory analysis, it is important to introduce the dataset that will be used throughout this module: the Iris Flower Dataset, one of the most well-known benchmarks in statistics, machine learning, and pattern recognition.\nThe dataset was first introduced by Sir Ronald Aylmer Fisher (1890–1962) in his groundbreaking 1936 paper titled “The Use of Multiple Measurements in Taxonomic Problems”. Sir R. A. Fisher, widely regarded as the Father of Modern Statistics, pioneered foundational concepts such as maximum likelihood estimation, analysis of variance (ANOVA), and statistical experimental design. His Iris study demonstrated how quantitative measurements could be used to classify biological specimens through multivariate statistics—an idea that evolved into modern machine learning classification techniques.\n\nDescription of the Dataset\nThe Iris dataset consists of 150 samples of iris flowers collected from three species:\n\n\n\nSpecies\nCount\n\n\n\n\nIris setosa\n50\n\n\nIris versicolor\n50\n\n\nIris virginica\n50\n\n\n\nFor each sample, four morphological measurements were recorded (in centimetres):\n\n\n\nFeature\nDescription\n\n\n\n\nSepal Length\nlength of the outer part of the flower\n\n\nSepal Width\nwidth of the outer part\n\n\nPetal Length\nlength of the inner petal\n\n\nPetal Width\nwidth of the inner petal\n\n\n\nThus, the dataset can be represented mathematically as: \\[\nX = \\{x_1, x_2, \\dots, x_{150}\\} \\subset \\mathbb{R}^4\n\\] where each vector \\[\nx_i = (\\text{sepal length},\\ \\text{sepal width},\\ \\text{petal length},\\ \\text{petal width})\n\\]\nThe corresponding class label \\[\ny_i \\in \\{\\text{setosa}, \\text{versicolor}, \\text{virginica}\\}\n\\]\n\n\nWhy is the Iris Dataset Important?\n\nServes as an ideal educational dataset for demonstrating statistical and machine learning concepts.\nExhibits distinct geometric separation between classes, inspiring early classification algorithms.\nProvides simple structure yet complex enough for real-world pattern recognition.\nForms the basis for classical methods such as Linear Discriminant Analysis (LDA) introduced by Fisher himself.\n\n\n\nIris Dataset and EDA\nThe Iris dataset is particularly suited for Exploratory Data Analysis because:\n\nIt contains both numeric features and categorical labels.\nIt enables visual analysis of relationships between pairs of variables.\nIt reveals distributional differences across species.\nIt supports understanding of dimensionality reduction and classification.\n\nWith this context, we now proceed to perform a detailed EDA of the dataset."
+  },
+  {
+    "objectID": "01-eda-math.html#exploratory-data-analysis-with-the-iris-dataset",
+    "href": "01-eda-math.html#exploratory-data-analysis-with-the-iris-dataset",
+    "title": "Module 1 — Data Foundations and Exploratory Data Analysis",
+    "section": "Exploratory Data Analysis with the Iris Dataset",
+    "text": "Exploratory Data Analysis with the Iris Dataset\nA glimps of the datset is shown below:\n\n\nCode\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load iris dataset\ndf = sns.load_dataset(\"iris\")\n\n# Display first rows\ndf.head()\n\n\n\n\n\n\n\n\n\nsepal_length\nsepal_width\npetal_length\npetal_width\nspecies\n\n\n\n\n0\n5.1\n3.5\n1.4\n0.2\nsetosa\n\n\n1\n4.9\n3.0\n1.4\n0.2\nsetosa\n\n\n2\n4.7\n3.2\n1.3\n0.2\nsetosa\n\n\n3\n4.6\n3.1\n1.5\n0.2\nsetosa\n\n\n4\n5.0\n3.6\n1.4\n0.2\nsetosa\n\n\n\n\n\n\n\nA summary of the dataset is shown below:\n\n\nCode\ndf.describe()\n\n\n\n\n\n\n\n\n\nsepal_length\nsepal_width\npetal_length\npetal_width\n\n\n\n\ncount\n150.000000\n150.000000\n150.000000\n150.000000\n\n\nmean\n5.843333\n3.057333\n3.758000\n1.199333\n\n\nstd\n0.828066\n0.435866\n1.765298\n0.762238\n\n\nmin\n4.300000\n2.000000\n1.000000\n0.100000\n\n\n25%\n5.100000\n2.800000\n1.600000\n0.300000\n\n\n50%\n5.800000\n3.000000\n4.350000\n1.300000\n\n\n75%\n6.400000\n3.300000\n5.100000\n1.800000\n\n\nmax\n7.900000\n4.400000\n6.900000\n2.500000\n\n\n\n\n\n\n\n\nPairwise Relationships\n\n\n\nCode\nsns.pairplot(df, hue='species')\nplt.show()\n\n\n\n\n\n\n\n\n\n\nFeature Distributions\n\n\n\nCode\ndf.hist(figsize=(8,6), bins=10)\nplt.suptitle(\"Distribution of Features in Iris Dataset\")\nplt.show()\n\n\n\n\n\n\n\n\n\n\nCorrelation Heatmap\n\n\n\nCode\nsns.heatmap(df.corr(numeric_only=True), annot=True)\nplt.title(\"Correlation Matrix\")\nplt.show()"
+  },
+  {
+    "objectID": "01-eda-math.html#reflections",
+    "href": "01-eda-math.html#reflections",
+    "title": "Module 1 — Data Foundations and Exploratory Data Analysis",
+    "section": "Reflections",
+    "text": "Reflections\n\nHow do norms relate to similarity and distance in machine learning algorithms?\nHow does EDA support model selection and problem formulation?\nWhich relationships among the Iris features appear strongest from the heatmap?"
+  },
+  {
+    "objectID": "01-eda-math.html#references",
+    "href": "01-eda-math.html#references",
+    "title": "Module 1 — Data Foundations and Exploratory Data Analysis",
+    "section": "References",
+    "text": "References"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Key Topics & Detailed Breakdown",
+    "section": "",
+    "text": "Data science for Mathematics Tribe\n\n    Opening Session\n\n  \n\n\n\n\n\n\nThis page provides the structured schedule and detailed mathematical content for the 4-hour intensive session.\n\n\n\n\n\n\n\n\n\nTime Slot\nModule Title\nCore Mathematical Focus\nComputational Tools\n\n\n\n\n0:00 - 1:00\nData Foundations and EDA\nDescriptive Statistics, Set Theory, Measure Theory (brief), \\(\\mathbf{L_1}\\)/\\(\\mathbf{L_2}\\) Norms, Data Transformation Functions.\nPandas, NumPy, Visualisation Libraries (e.g., Matplotlib/ggplot2)\n\n\n1:00 - 2:00\nMachine Learning Core\nMultivariable Calculus, Gradient Descent (Calculus of Variations), Linear Algebra (Vector Spaces), Regularization (Penalties and Constraint Sets).\nScikit-learn, TensorFlow/PyTorch (High-level overview)\n\n\n2:00 - 3:00\nDimensionality Reduction\nEigenvalue/Eigenvector Decomposition, Singular Value Decomposition (SVD), Matrix Algebra.\nScikit-learn (PCA implementation), NumPy/SciPy\n\n\n3:00 - 4:00\nResearch Frontiers\nGraph Theory (TDA), Topology, Information Theory, Optimization Theory (Advanced topics).\nSpecialized Python libraries (e.g., Giotto-TDA, SHAP for XAI)"
+  }
+]
