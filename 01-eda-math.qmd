@@ -1,0 +1,324 @@
+---
+title: "Module 1 — Data Foundations and Exploratory Data Analysis"
+subtitle: "Introductory Module for Postgraduate Mathematics Students and Mathematics Faculty"
+bibliography: reference.bib
+format:
+  html:
+    theme: yeti
+    toc: true
+    toc-depth: 3
+    smooth-scroll: true
+    code-fold: true
+author: "Siju Swamy"
+
+execute:
+  echo: true
+  warning: false
+  message: false
+jupyter: python3
+---
+
+<div style="width: 100%; text-align: center;">
+  <img src="M1_Dataanalysis_EDA.png" 
+       alt="A descriptive text for the image" 
+       style="width: 100%; height: auto; max-width: 1000px; display: block; margin: 0 auto;">
+</div>
+
+
+## Introduction
+
+Modern scientific research and technological innovation are fundamentally data–driven.
+Across disciplines—engineering, healthcare, economics, environmental sciences, and artificial intelligence—data is the essential raw material that fuels knowledge creation, modelling, and decision making.
+
+This introductory module connects mathematical theory with computational practices to prepare
+mathematicians for research and professional environments where quantitative reasoning and computational thinking play a central role.
+
+
+
+## What is Data?
+
+Data refers to quantified measurements, observations, records or symbols used to describe objects, events, behaviours, or natural phenomena.
+
+In a formal mathematical sense, data can be considered as **elements of a set**
+$$
+X = \{x_1, x_2, \dots, x_n\} \subset \mathbb{R}^d
+$$
+where each $x_i$ is a $d$-dimensional vector representing measurable features.
+
+Examples:
+
+- A medical dataset: $x_i = (\text{age}, \text{height}, \text{blood pressure})$
+- The Iris flower dataset: $x_i = (\text{sepal length}, \text{sepal width}, \text{petal length}, \text{petal width})$
+
+
+
+## Key Steps in Data Analysis
+
+| Step | Description |
+|-------|------------|
+| **Data Collection** | Obtaining measurements from instruments, surveys, sensors, or sources |
+| **Data Cleaning** | Handling missing, noisy, duplicated, or inconsistent values |
+| **Data Transformation** | Scaling, encoding, normalization and feature engineering |
+| **Exploratory Data Analysis (EDA)** | Statistical summarization and visual discovery of patterns |
+| **Modelling and Interpretation** | Mathematical modelling, inference, prediction, and optimization |
+| **Knowledge Communication** | Reports, dashboards, research papers, deployment |
+
+
+
+## Data Analysis vs Data Analytics
+
+| Data Analysis | Data Analytics |
+|--------------|----------------|
+| Understanding and interpreting datasets | Using data to support decisions and predictions |
+| Investigates relationships and structure | Focuses on outcomes and business/operational value |
+| More mathematical & theory oriented | More application & tool oriented |
+| Example: hypothesis testing | Example: customer churn prediction |
+
+
+
+## Role of Mathematics & Statistics in Data Analytics
+
+Mathematics provides:
+
+- **Abstract structures** (sets, functions, spaces, topology)
+- **Optimization frameworks** for machine learning algorithms
+- **Linear algebra** for vectorized computation & dimensionality reduction
+- **Measure theory & probability** for uncertainty modelling
+- **Information theory** for data compression and learning
+
+Statistics provides:
+
+- Summaries, inference, estimation & hypothesis validation
+- Understanding variability and uncertainty
+- Foundations of experimental design and sampling
+
+
+
+## Perspective Shift for the Modern Mathematician (@strang2019linear)
+
+To contribute effectively to data-centric scientific environments, a mathematician must:
+
+- Move from **closed-form solutions** to **computational approximation and simulation**
+- Accept empirical validation instead of purely symbolic proof
+- Develop algorithmic thinking and computational tool fluency
+- Translate abstract models into real-world actionable insight
+- Embrace interdisciplinary collaboration integrating computing and domain knowledge
+
+
+
+## Mathematical Formalism
+
+### **Vector Space View of Data**
+$$
+X \subset \mathbb{R}^d,\qquad x_i = (x_{i1}, x_{i2}, \dots, x_{id})
+$$
+
+### **Norm-based Measurement**
+$$
+\|x\|_1 = \sum |x_i|,\qquad \|x\|_2 = \left( \sum x_i^2 \right)^{1/2}
+$$
+
+### **Measure Theoretic View**
+$$
+(X, \Sigma, \mu)
+$$
+
+where:
+
+- $X$ — dataset/sample space
+- $\Sigma$ — σ-algebra of measurable subsets
+- $\mu$ — measure assigning size/probability
+
+## Understanding Exploratory Data Analysis (EDA)
+
+### What is EDA?
+
+Exploratory Data Analysis (EDA) is the process of systematically examining a dataset to
+discover patterns, identify anomalies, test assumptions, and validate hypotheses using
+summary statistics and graphical representations. It is the first and most essential step
+in any analytical or machine learning workflow.
+
+In simple terms, **EDA tells us the story hidden inside the data**.
+
+
+
+### Why is EDA Important?
+
+EDA is crucial because:
+
+- It helps understand the structure and characteristics of a dataset before formal modelling.
+- It reveals hidden relationships among variables.
+- It identifies noise, outliers, missing values, and inconsistencies.
+- It guides the selection of appropriate statistical or machine learning models.
+- It prevents incorrect assumptions that could lead to misleading conclusions.
+
+Without EDA, modelling becomes guesswork rather than a scientifically grounded analysis.
+
+
+
+### Common Statistical Tools Used in EDA
+
+| Statistical Method | Purpose |
+|--------------------|---------|
+| Mean, Median, Mode | Central behaviour of data |
+| Variance, Standard Deviation | Spread or variability |
+| Quantiles & IQR | Range and distribution behaviour |
+| Correlation measures | Strength and direction of relationships |
+| Covariance matrices | Linear dependence structure |
+| Normality tests | Distributional assumptions |
+
+
+
+### Common Visualization Tools in EDA
+
+| Plot Type | Purpose |
+|-----------|---------|
+| Histogram | Distribution and skewness |
+| Boxplot | Outliers and spread |
+| Scatter Plot | Relationship between paired variables |
+| Pairplot (matrix plot) | All relationships in multivariate dataset |
+| Heatmap | Correlation structure |
+| Violin Plot / KDE plot | Shape of distribution |
+
+Data visualization converts numeric tables into human-understandable patterns and evidence.
+
+
+
+### How EDA Helps at Different Levels
+
+| Stakeholder | Benefit |
+|-------------|---------|
+| **Common Individual** | Gains clarity about dataset behaviour without technical depth |
+| **Data Scientist / Analyst** | Learns structure, prepares features, selects models, validates assumptions |
+| **Professional Decision Maker / Policy Planner** | Makes informed strategic decisions based on evidence instead of intuition |
+
+Real-world example:
+
+- In healthcare analytics, EDA may reveal that a specific symptom correlates strongly with disease severity.
+- Decision makers can deploy targeted interventions or allocate resources precisely.
+
+Thus, **EDA transforms raw data into insight, and insight into action**.
+
+## The Iris Dataset — Historical and Scientific Importance
+
+Before conducting the exploratory analysis, it is important to introduce the dataset that
+will be used throughout this module: the **Iris Flower Dataset**, one of the most well-known
+benchmarks in statistics, machine learning, and pattern recognition.
+
+The dataset was first introduced by **Sir Ronald Aylmer Fisher (1890–1962)** in his
+groundbreaking 1936 paper titled *"The Use of Multiple Measurements in Taxonomic Problems"*.
+Sir R. A. Fisher, widely regarded as the **Father of Modern Statistics**, pioneered foundational
+concepts such as maximum likelihood estimation, analysis of variance (ANOVA), and statistical
+experimental design. His Iris study demonstrated how quantitative measurements could be used
+to classify biological specimens through multivariate statistics—an idea that evolved into
+modern machine learning classification techniques.
+
+
+### Description of the Dataset
+
+The Iris dataset consists of **150 samples** of iris flowers collected from three species:
+
+| Species | Count |
+|---------|--------|
+| *Iris setosa* | 50 |
+| *Iris versicolor* | 50 |
+| *Iris virginica* | 50 |
+
+For each sample, **four morphological measurements** were recorded (in centimetres):
+
+| Feature | Description |
+|----------|--------------|
+| **Sepal Length** | length of the outer part of the flower |
+| **Sepal Width** | width of the outer part |
+| **Petal Length** | length of the inner petal |
+| **Petal Width** | width of the inner petal |
+
+Thus, the dataset can be represented mathematically as:
+$$
+X = \{x_1, x_2, \dots, x_{150}\} \subset \mathbb{R}^4
+$$
+where each vector
+$$
+x_i = (\text{sepal length},\ \text{sepal width},\ \text{petal length},\ \text{petal width})
+$$
+
+The corresponding class label
+$$
+y_i \in \{\text{setosa}, \text{versicolor}, \text{virginica}\}
+$$
+
+
+
+### Why is the Iris Dataset Important?
+
+- Serves as an ideal educational dataset for demonstrating statistical and machine learning concepts.
+- Exhibits distinct geometric separation between classes, inspiring early classification algorithms.
+- Provides simple structure yet complex enough for real-world pattern recognition.
+- Forms the basis for classical methods such as **Linear Discriminant Analysis (LDA)** introduced by Fisher himself.
+
+
+### Iris Dataset and EDA
+
+The Iris dataset is particularly suited for **Exploratory Data Analysis** because:
+
+- It contains both numeric features and categorical labels.
+- It enables visual analysis of relationships between pairs of variables.
+- It reveals distributional differences across species.
+- It supports understanding of dimensionality reduction and classification.
+
+With this context, we now proceed to **perform a detailed EDA** of the dataset.
+
+
+
+## Exploratory Data Analysis with the Iris Dataset
+
+A glimps of the datset is shown below:
+
+```{python}
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Load iris dataset
+df = sns.load_dataset("iris")
+
+# Display first rows
+df.head()
+```
+
+A summary of the dataset is shown below:
+
+```{python}
+df.describe()
+```
+
+>Pairwise Relationships
+```{python}
+sns.pairplot(df, hue='species')
+plt.show()
+```
+
+> Feature Distributions
+
+```{python}
+df.hist(figsize=(8,6), bins=10)
+plt.suptitle("Distribution of Features in Iris Dataset")
+plt.show()
+```
+>Correlation Heatmap
+
+```{python}
+sns.heatmap(df.corr(numeric_only=True), annot=True)
+plt.title("Correlation Matrix")
+plt.show()
+```
+
+## Reflections
+
+- How do norms relate to similarity and distance in machine learning algorithms?
+
+- How does EDA support model selection and problem formulation?
+
+- Which relationships among the Iris features appear strongest from the heatmap?
+
+## References

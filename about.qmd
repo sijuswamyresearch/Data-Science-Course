@@ -1,0 +1,30 @@
+---
+title: "Key Topics & Detailed Breakdown"
+format:
+  html:
+    theme: yeti
+    toc: true
+    toc-depth: 3
+    smooth-scroll: true
+    code-fold: true
+author: "Siju Swamy"
+affiliation: "Saintgits College of Engineering (Autonomous)"
+execute:
+  echo: true
+  warning: false
+  message: false
+jupyter: python3
+include-before-body: hero-image.html
+---
+
+
+
+
+This page provides the structured schedule and detailed mathematical content for the 4-hour intensive session.
+
+| Time Slot     | Module Title             | Core Mathematical Focus                                                                                                            | Computational Tools                                             |
+|---------------|---------------------------|---------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
+| 0:00 - 1:00   | Data Foundations and EDA  | Descriptive Statistics, Set Theory, Measure Theory (brief), $\mathbf{L_1}$/$\mathbf{L_2}$ Norms, Data Transformation Functions.     | Pandas, NumPy, Visualisation Libraries (e.g., Matplotlib/ggplot2) |
+| 1:00 - 2:00   | Machine Learning Core     | Multivariable Calculus, Gradient Descent (Calculus of Variations), Linear Algebra (Vector Spaces), Regularization (Penalties and Constraint Sets). | Scikit-learn, TensorFlow/PyTorch (High-level overview)          |
+| 2:00 - 3:00   | Dimensionality Reduction  | Eigenvalue/Eigenvector Decomposition, Singular Value Decomposition (SVD), Matrix Algebra.                                           | Scikit-learn (PCA implementation), NumPy/SciPy                  |
+| 3:00 - 4:00   | Research Frontiers        | Graph Theory (TDA), Topology, Information Theory, Optimization Theory (Advanced topics).                                             | Specialized Python libraries (e.g., Giotto-TDA, SHAP for XAI)    |

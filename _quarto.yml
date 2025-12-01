@@ -1,0 +1,32 @@
+project:
+  type: website
+  title: "Applied Mathematics in the Age of AI"
+  
+website:
+  navbar:
+    title: "Data Science for Mathematicians"
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "About"
+        href: about.qmd
+      - text: "Modules"
+        menu:
+          - text: "Module 1: Data Foundations"
+            href: 01-eda-math.qmd
+          - text: "Module 2: ML Core & Optimization"
+            href: 02-ml-core.qmd
+        
+    right:
+      - icon: github
+        href: https://github.com/YourUsername/YourRepoName # **UPDATE THIS LINK**
+  page-footer:
+    left: "Computational Data Science for Mathematicians"
+    right: "© 2025 Siju SWamy"
+  
+format:
+  html:
+    theme: yeti
+    css: styles.css
+    toc: true # Table of Contents on the side
+    math: true

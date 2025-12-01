@@ -1,0 +1,164 @@
+---
+title: "Module 2 — Machine Learning Core"
+subtitle: "Mathematics of Learning Systems, Optimization, and Computational Perspective"
+format:
+  html:
+    theme: yeti
+    toc: true
+    toc-depth: 3
+    smooth-scroll: true
+    code-fold: true
+author: "Siju Swamy"
+execute:
+  echo: true
+  warning: false
+  message: false
+jupyter: python3
+---
+
+<div style="width: 100%; text-align: center;">
+  <img src="M2_ML_core.png" 
+       alt="A descriptive text for the image" 
+       style="width: 100%; height: auto; max-width: 1000px; display: block; margin: 0 auto;">
+</div>
+
+## Introduction
+
+Machine Learning (ML) is a scientific discipline that enables systems to learn patterns
+from data and make decisions without explicitly defined rules. From a mathematical perspective,
+machine learning is grounded in optimization theory, statistical inference, multivariable calculus,
+probability, linear algebra, and functional analysis.
+
+This module aims to connect the abstract mathematical foundations with computational implementations,
+guiding mathematicians to appreciate machine learning not only as an applied tool, but as
+a modern extension of optimization and function approximation theory.
+
+## What is Machine Learning?
+
+Machine learning seeks to approximate an unknown functional relationship between input features $X$
+and outputs $Y$, based on observed sample data. Formally, given:
+$$
+X = \{x_1, x_2, \dots, x_n\} \subset \mathbb{R}^d,\qquad
+Y = \{y_1, y_2, \dots, y_n\}
+$$
+
+The goal is to learn a function:
+$$
+f_\theta : \mathbb{R}^d \rightarrow Y
+$$
+
+such that the **prediction error is minimized**:
+$$
+\theta^\* = \arg \min_{\theta} L(f_\theta(X), Y)
+$$
+
+where $L$ is a **loss function**, representing the discrepancy between predictions and truth.
+
+---
+
+## Key Types of Machine Learning
+
+| Type | Description | Example |
+|-------|-----------|---------|
+| Supervised Learning | Learn mapping from features to target labels | Classification & Regression |
+| Unsupervised Learning | Learn patterns and structure without labels | Clustering & PCA |
+| Reinforcement Learning | Learn behaviour through rewards | Robotics & Game AI |
+
+---
+
+## Role of Mathematics in Machine Learning
+
+| Mathematical Component | Contribution |
+|------------------------|--------------|
+| **Multivariable Calculus** | Optimization through gradients and updates |
+| **Linear Algebra** | Vectorization, matrix operations, feature transformations |
+| **Probability & Statistics** | Inference, uncertainty modelling, distributions |
+| **Optimization Theory** | Convergence guarantees and algorithm evaluation |
+| **Measure Theory** | Formal understanding of learning over spaces |
+
+Machine learning problems are fundamentally **optimization problems in high-dimensional spaces**.
+
+---
+
+## Gradient Descent — Core Optimization Engine
+
+The optimization goal is to find parameters $\theta$ that minimize the loss function $L(\theta)$:
+$$
+\theta^\* = \arg \min_{\theta} L(\theta)
+$$
+
+Gradient descent updates parameters iteratively:
+$$
+\theta_{k+1} = \theta_k - \eta \nabla_\theta L(\theta_k)
+$$
+
+Where:
+- $\eta$ — learning rate (step size)
+- $\nabla_\theta L$ — gradient of loss with respect to parameters
+
+### Example Loss Function (Mean Squared Error)
+$$
+L(\theta) = \frac{1}{n} \sum_{i=1}^{n} (y_i - f_\theta(x_i))^2
+$$
+
+Regularization helps avoid overfitting by penalizing overly complex models:
+
+### $L_2$ Regularization:
+$$
+L(\theta) = \frac{1}{n} \sum_{i=1}^{n}(y_i - f_\theta(x_i))^2 + \lambda \|\theta\|_2^2
+$$
+
+### $L_1$ Regularization:
+$$
+L(\theta) = \frac{1}{n} \sum_{i=1}^{n}(y_i - f_\theta(x_i))^2 + \lambda \|\theta\|_1
+$$
+
+
+## Linear Algebra in Machine Learning
+
+Machine learning models rely heavily on matrix-vector operations:
+
+$$
+y = X\theta
+$$
+
+For $n$ samples and $d$ features:
+
+$$
+X \in \mathbb{R}^{n \times d},\quad \theta \in \mathbb{R}^d,\quad y \in \mathbb{R}^n
+$$
+
+Dimensionality reduction & feature extraction operate via eigenvalue decomposition:
+$$
+A v = \lambda v
+$$
+
+This provides the basis for PCA and optimization-based feature representation.
+
+
+
+## Example ML Task — Iris Classification
+
+We now apply machine learning to classify the three flower species using logistic regression.
+
+```{python}
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, confusion_matrix
+import pandas as pd
+
+iris = load_iris()
+X = iris.data
+y = iris.target
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+model = LogisticRegression(max_iter=200)
+model.fit(X_train, y_train)
+
+y_pred = model.predict(X_test)
+
+print("Accuracy:", accuracy_score(y_test, y_pred))
+print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
+```

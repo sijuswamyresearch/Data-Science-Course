@@ -1,0 +1,54 @@
+---
+title: "Applied Mathematics in the Age of AI"
+subtitle: "Essential Concepts and Computational Tools for Data Science"
+---
+
+
+<div style="width: 100%; text-align: center;">
+  <img src="machine_learning_4_maths.png" 
+       alt="A descriptive text for the image" 
+       style="width: 100%; height: auto; max-width: 1000px; display: block; margin: 0 auto;">
+</div>
+
+## Session Overview
+
+This intensive 4-hour session is designed for mathematics PG students and faculty to rigorously explore the discipline of Data Science through the lens of Applied Mathematics and modern computation.
+
+We will move beyond a high-level overview to establish a strong theoretical and practical foundation, demonstrating how core mathematical principles—from Linear Algebra and Optimization to Probability and Statistics—form the engine of today's most powerful AI systems.
+
+## Target Audience
+
+Postgraduate Students in Mathematics, Statistics, and related fields.
+
+Faculty members seeking to integrate modern Data Science curriculum into their teaching and research.
+
+## Session Mode
+
+The session is structured in an interactive mode, blending in-depth mathematical derivations with live computational demonstrations using industry-standard tools (e.g., Python/R environments).
+
+We will emphasize:
+
+- Mathematical Derivations: Understanding the why behind algorithms.
+
+- Computational Execution: Translating theory into working code.
+
+- Critical Analysis: Evaluating model performance based on mathematical metrics.
+
+
+<div style="width: 100%; text-align: center;">
+  <img src="Slide3_Strategic_guidance_for_indian_math.png" 
+       alt="A descriptive text for the image" 
+       style="width: 100%; height: auto; max-width: 1000px; display: block; margin: 0 auto;">
+</div>
+
+## Key Learning Outcome
+
+Participants will gain a clear understanding of how their mathematical expertise directly translates into practical, state-of-the-art computational modeling, identifying immediate pathways to apply these tools in academic research and industry.
+
+Navigate to the Key Topics & Schedule tab to see the detailed breakdown of the 4-hour session.
+
+<div style="width: 100%; text-align: center;">
+  <img src="Slide4_Mathematician_for_2030.png" 
+       alt="A descriptive text for the image" 
+       style="width: 100%; height: auto; max-width: 1000px; display: block; margin: 0 auto;">
+</div>

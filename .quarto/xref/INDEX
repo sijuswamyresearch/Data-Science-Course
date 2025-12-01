@@ -1,0 +1,14 @@
+{
+  "index.qmd": {
+    "index.html": "7be3c58b"
+  },
+  "about.qmd": {
+    "about.html": "c886a153"
+  },
+  "01-eda-math.qmd": {
+    "01-eda-math.html": "2f2c64ae"
+  },
+  "02-ml-core.qmd": {
+    "02-ml-core.html": "94913af6"
+  }
+}
