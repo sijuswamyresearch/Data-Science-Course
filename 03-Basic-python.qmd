@@ -1,0 +1,473 @@
+---
+title: "Module 0 — Introduction to Visualization"
+subtitle: "Basic python plotting"
+bibliography: reference.bib
+format:
+  html:
+    theme: yeti
+    toc: true
+    toc-depth: 3
+    smooth-scroll: true
+    code-fold: true
+author: "Siju Swamy"
+
+execute:
+  echo: true
+  warning: false
+  message: false
+jupyter: python3
+---
+
+## Aim
+
+To study and implement basic numerical computation, symbolic mathematics and graphical visualization using `Python` libraries such as `NumPy`, `SymPy` and `Matplotlib`.
+
+### Basic Usage of Numpy
+
+NumPy (Numerical Python) is the foundational library for scientific computing in Python. It provides support for large, multi-dimensional arrays and matrices, along with a collection of mathematical functions to operate on these arrays efficiently. In this section, basic mathematical operations are transleted to `python`. For this simulation examples `Numpy` library will be used.
+
+```{python}
+import numpy as np
+```
+:::{.callout-note}
+## Formatting output
+
+In-order to handle exceptions on division operation, usually `python` make even zero output to a very small positive number.
+:::
+
+### Mathematical Functions
+
+`NumPy` allows us to perform element-wise mathematical operations on arrays without using loops.
+>**Simulating a basic mathematics functions, $y=f(x)$ in data driven approach**
+
+```{python}
+# Sine function
+angles = np.array([0, np.pi/2, np.pi])
+sin_values = np.sin(angles)
+print("Sine Values:", sin_values)
+
+# Exponential function
+a=np.array([1,2,3])
+exp_values = np.exp(a)
+print("Exponential Values:", exp_values)
+
+# Square root function
+sqrt_values = np.sqrt(a)
+print("Square Root Values:", sqrt_values)
+```
+
+### Array Manipulation
+Understanding how to structure data is crucial. We can reshape arrays to change their dimensions or access specific elements using indexing and slicing.
+
+```{python}
+# Reshaping a 1D array to 2D
+reshaped_array = np.arange(6).reshape((2, 3))
+print("Reshaped Array:\n", reshaped_array)
+
+# Indexing and Slicing
+array = np.array([1, 2, 3, 4, 5])
+
+# Accessing an element
+print("Element at index 2:", array[2])
+
+# Slicing (elements from index 1 up to, but not including, 4)
+print("Elements from index 1 to 3:", array[1:4])
+
+# Fancy indexing (accessing specific non-consecutive indices)
+indices = [0, 2, 4]
+print("Elements at indices 0, 2, 4:", array[indices])
+```
+
+### Aggregation Functions
+These functions allow us to summarize data by computing statistics like sums, means, or finding extreme values.
+
+```{python}
+# Sum of elements
+sum_value = np.sum(array)
+print("Sum:", sum_value)
+
+# Mean of elements
+mean_value = np.mean(array)
+print("Mean:", mean_value)
+
+# Maximum and Minimum values
+print("Max:", np.max(array))
+print("Min:", np.min(array))
+```
+
+### Broadcasting
+Broadcasting is a powerful mechanism that allows `NumPy` to work with arrays of different shapes during arithmetic operations. It automatically "stretches" the smaller array to match the larger one.
+
+```{python}
+# Broadcasting a scalar value
+scalar = 5
+broadcasted_sum = array + scalar
+print("Array + Scalar:\n", broadcasted_sum)
+
+# Broadcasting with different shapes
+array_2d = np.array([[1, 2, 3], [4, 5, 6]])
+array_1d = np.array([1, 2, 3])
+broadcasted_sum_2d = array_2d + array_1d
+print("2D Array + 1D Array:\n", broadcasted_sum_2d)
+```
+
+### Symbolic Mathematics with SymPy
+Unlike `NumPy`, which computes numerical approximations, `SymPy` is used for symbolic mathematics. It handles algebra, calculus, and equation solving exactly, much like we would on paper.
+
+#### Basic Symbolic Computation
+We start by defining symbolic variables and manipulating algebraic expressions.
+
+```{python}
+import sympy as sp
+
+# Define symbols
+x, y = sp.symbols('x y')
+
+# Define an expression
+expr = x**2 + 2*x + 1
+
+# Simplify the expression
+simplified_expr = sp.simplify(expr)
+print(f"Simplified expression: {simplified_expr}")
+
+# Expand the expression
+expanded_expr = sp.expand((x + 1)**2)
+print(f"Expanded expression: {expanded_expr}")
+```
+
+### Solving Equations
+
+SymPy can find exact roots of algebraic equations.
+
+```{python}
+# Define equation: x^2 - 4 = 0
+eq = sp.Eq(x**2 - 4, 0)
+
+# Solve for x
+solutions = sp.solve(eq, x)
+print(f"Solutions: {solutions}")
+```
+
+### Calculus
+`SymPy` excels at performing derivatives and integrals symbolically.
+
+```{python}
+# Define a function
+f = sp.sin(x) * sp.exp(x)
+
+# Differentiate the function
+f_prime = sp.diff(f, x)
+print(f"Derivative: {f_prime}")
+
+# Integrate the function
+integral = sp.integrate(f, x)
+print(f"Integral: {integral}")
+```
+
+### Limits and Series Expansion
+
+We can also compute limits and Taylor series expansions, which are essential for approximation theory.
+
+```{python}
+# Limit of sin(x)/x as x approaches 0
+f_limit = sp.sin(x) / x
+limit_val = sp.limit(f_limit, x, 0)
+print(f"Limit: {limit_val}")
+
+# Series expansion of e^x around x=0
+f_exp = sp.exp(x)
+series_f = sp.series(f_exp, x, 0, 6)
+print(f"Series expansion: {series_f}")
+```
+
+##  Graphical Visualization with `Matplotlib`
+
+`Matplotlib` is the standard library for creating static, animated, and interactive visualizations in `Python`.
+
+### Basic Plots (Line and Scatter)
+Line plots are used for continuous data, while scatter plots are best for discrete data points.
+
+```{python}
+import matplotlib.pyplot as plt
+
+# Data
+x = [1, 2, 3, 4, 5]
+y = [2, 3, 5, 7, 11]
+
+# Basic Line Plot
+plt.plot(x, y)
+plt.xlabel('x-axis')
+plt.ylabel('y-axis')
+plt.title('Basic Line Plot')
+plt.show()
+
+# Basic Scatter Plot
+plt.scatter(x, y)
+plt.xlabel('x-axis')
+plt.ylabel('y-axis')
+plt.title('Basic Scatter Plot')
+plt.show()
+```
+
+### Categorical and Distribution Plots
+
+Bar charts compare categories, while histograms show the frequency distribution of continuous data.
+
+```{python}
+# Bar Plot
+categories = ['A', 'B', 'C', 'D']
+values = [4, 7, 1, 8]
+plt.bar(categories, values)
+plt.title('Basic Bar Plot')
+plt.show()
+
+# Histogram
+data = np.random.randn(1000)
+plt.hist(data, bins=30, edgecolor="black")
+plt.title('Basic Histogram')
+plt.show()
+```
+
+### Pie Chart and Customization
+Pie charts visualize proportions. You can also heavily customize plots (colors, line styles, markers) to improve readability.
+
+```{python}
+# Pie Chart
+labels = ['A', 'B', 'C', 'D']
+sizes = [15, 30, 45, 10]
+explode = (0.1, 0, 0, 0) # explode 1st slice
+plt.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%', shadow=True)
+plt.title('Basic Pie Chart')
+plt.show()
+
+# Customized Line Plot
+plt.plot(x, y, color='green', marker='o', linestyle='dashed', linewidth=2, markersize=12)
+plt.title('Customized Line Plot')
+plt.show()
+```
+
+### Solving linear system graphically
+
+```{python}
+## visualization as intersection of line joining
+import matplotlib.pyplot as plt
+x = np.arange(-10, 10)
+y = 2*x
+y1 = -x + 3
+plt.figure()
+plt.plot(x, y)
+plt.plot(x, y1)
+plt.xlim(0, 3)
+plt.ylim(0, 3)
+# draw axes
+plt.axvline(x=0, color='grey')
+plt.axhline(y=0, color='grey')
+plt.plot([1,1],[0,2], 'g--')
+plt.plot([1,0],[2,2], 'g--')
+plt.show()
+plt.close()
+```
+
+### Fundementals of Digital Images
+
+>**Plotting a matrix as an image**
+This is a matrix which is an image. Here each square corresponds to one item in the matrix, and color of each square corresponds to the value of element in the matrix.
+```{python}
+I=np.matrix([[1,1,1,1],[0,0,0,1],[0,0,1,0],[0,1,0,0],[1,0,0,0]])
+print(I)
+plt.imshow(I,cmap='gray', vmin = 0, vmax = 1,interpolation='none')
+plt.show()
+```
+
+### Creating a random grayscale image
+
+```{python}
+V=np.random.randint(1,255,size=(5,4))
+print(I+V)
+plt.imshow(I+V,cmap='gray', vmin = 0, vmax = 255,interpolation='none')
+plt.show()
+```
+
+### Basic image Processing and Matrix operations
+
+```{python}
+##loading an image and show it using matrices of pixel values
+from skimage import io
+f = "http://lenna.org/len_top.jpg" #url of the image
+a = io.imread(f) # read the image to a tensor
+c1=a[:,:,0] # channel 1
+c2=a[:,:,1] # channel 2
+c3=a[:,:,2] # channel 3
+print(c1)
+```
+
+### Frequency distribution of channel 1 pixel values
+
+```{python}
+import pandas as pd
+c1_array=np.array(list(c1)).reshape(-1)
+pd.Series(c1_array).hist()
+```
+
+### Another method to load the colour image and convert to grayscale
+
+```{python}
+from PIL import Image
+import urllib.request
+urllib.request.urlretrieve(
+  'http://lenna.org/len_top.jpg',
+   "input.jpg")
+  
+img = Image.open("input.jpg")
+```
+
+```{python}
+imggray = img.convert('LA')
+plt.figure(figsize=(8,6))
+plt.imshow(imggray);
+```
+
+```{python}
+imgmat = np.array(list(imggray.getdata(band=0)), float)
+A=pd.Series(imgmat)
+A.hist(bins=20)
+```
+
+```{python}
+fig = plt.figure(figsize=(12, 3))
+ax1 = fig.add_subplot(131)
+ax2 = fig.add_subplot(132)
+ax3 = fig.add_subplot(133)
+ax1.imshow(c1, cmap='gray', vmin = 0, vmax = 255,interpolation='none')
+ax2.imshow(c2, cmap='gray', vmin = 0, vmax = 255,interpolation='none')
+ax3.imshow(c3, cmap='gray', vmin = 0, vmax = 255,interpolation='none')
+plt.show()
+```
+
+```{python}
+## an application of matrix addition
+plt.imshow(0.34*c1+0.2*c2-0.0001*c3, cmap='gray', vmin = 0, vmax = 255,interpolation='none')
+plt.show()
+```
+
+```{python}
+## an application of matrix multiplication
+plt.imshow(np.dot(c1,c2.T), cmap='gray', vmin = 0, vmax = 255,interpolation='none')
+plt.show()
+```
+```{python}
+## an application of hadamads multiplication
+plt.imshow(c1*c3, cmap='gray', vmin = 0, vmax = 255,interpolation='none')
+plt.show()
+```
+
+### Applying a random mask on the image
+
+```{python}
+#Pr=np.random.randint(1,3,size=c2.shape)
+Pr=np.round(1500*np.random.randn(c2.shape[0],c2.shape[1]))
+print(Pr)
+plt.imshow(c1*Pr, cmap='gray', vmin = 0, vmax = 255,interpolation='none')
+plt.show()
+```
+```{python}
+## noising an image using matrix addition
+plt.imshow(c1+Pr, cmap='gray', vmin = 0, vmax = 255,interpolation='none')
+plt.show()
+noised=c1+Pr
+```
+```{python}
+##de-noising an image using matrix operation
+plt.imshow(noised-Pr, cmap='gray', vmin = 0, vmax = 255,interpolation='none')
+plt.show()
+```
+
+
+## Application Problems
+These problems demonstrate how to apply the libraries above to real-world engineering scenarios.
+
+### Digital Communication: Signal Processing
+Problem: Store signal samples, reshape them into time frames, and compute signal statistics (Max, Min, Average).
+
+```{python}
+import numpy as np
+
+# Signal samples
+signal = np.array([2.1, 2.5, 2.3, 2.8, 3.0, 2.9])
+
+# Reshape into 2D array (2 frames, 3 samples each)
+signal_reshaped = signal.reshape(2, 3)
+
+# Signal analysis
+print("Reshaped Signal:\n", signal_reshaped)
+print("Maximum Signal Value:", np.max(signal_reshaped))
+print("Minimum Signal Value:", np.min(signal_reshaped))
+print("Average Signal Value:", np.mean(signal_reshaped))
+```
+
+### Antenna Theory: Radiation Intensity
+
+Problem: Compute radiation intensity proportional to $\sin(\theta)$ for specific angles.
+
+```{python}
+# Angles in radians: 0, pi/4, pi/2, pi
+theta = np.array([0, np.pi/4, np.pi/2, np.pi])
+
+# Radiation intensity computation
+intensity = np.sin(theta)
+
+print("Angles (radians):", theta)
+print("Radiation Intensity:", intensity)
+```
+
+### Circuit Analysis: Node Voltage
+Problem: Solve the node voltage equation $2V - 10 = 0$ symbolically.
+
+```{python}
+import sympy as sp
+
+# Define symbolic variable
+V = sp.symbols('V')
+
+# Define and solve equation
+equation = 2*V - 10
+solution = sp.solve(equation, V)
+
+print("Node Voltage:", solution)
+```
+
+### Filter Analysis: Frequency Response
+Problem: Visualize the output voltage of a filter against frequency.
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Data
+frequency = np.array([100, 200, 300, 400, 500])
+voltage = np.array([1.2, 2.1, 3.0, 2.5, 1.8])
+
+# Plotting the response
+plt.plot(frequency, voltage)
+plt.xlabel("Frequency (Hz)")
+plt.ylabel("Output Voltage (V)")
+plt.title("Frequency Response of Filter")
+plt.grid(True) # Adding grid for better readability
+plt.show()
+```
+
+### Communication Channel: Noise Distribution
+Problem: Analyze the distribution of random noise samples using a histogram.
+
+```{python}
+# Noise samples
+noise = np.array([0.2, -0.1, 0.05, 0.3, -0.25, 0.15, 0.1, -0.05])
+
+# Histogram visualization
+plt.hist(noise, bins=5, edgecolor='black')
+plt.xlabel("Noise Amplitude")
+plt.ylabel("Frequency")
+plt.title("Noise Distribution in Channel")
+plt.show()
+```
+
+

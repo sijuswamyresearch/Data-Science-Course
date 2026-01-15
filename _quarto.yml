@@ -12,11 +12,13 @@ website:
         href: about.qmd
       - text: "Modules"
         menu:
+          - text: "Module 0: Python Basic"
+            href: 03-Basic-python.qmd
           - text: "Module 1: Data Foundations"
             href: 01-eda-math.qmd
           - text: "Module 2: ML Core & Optimization"
             href: 02-ml-core.qmd
-        
+          
     right:
       - icon: github
         href: https://github.com/sijuswamyresearch/Data-Science-Course # **UPDATE THIS LINK**

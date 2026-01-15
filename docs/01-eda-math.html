@@ -192,6 +192,10 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-modules">    
         <li>
+    <a class="dropdown-item" href="./03-Basic-python.html">
+ <span class="dropdown-text">Module 0: Python Basic</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./01-eda-math.html">
  <span class="dropdown-text">Module 1: Data Foundations</span></a>
   </li>  
@@ -653,7 +657,7 @@ y_i \in \{\text{setosa}, \text{versicolor}, \text{virginica}\}
 <section id="exploratory-data-analysis-with-the-iris-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="exploratory-data-analysis-with-the-iris-dataset">Exploratory Data Analysis with the Iris Dataset</h2>
 <p>A glimps of the datset is shown below:</p>
-<div id="aa7e7391" class="cell" data-execution_count="1">
+<div id="a1d6eac2" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -729,7 +733,7 @@ y_i \in \{\text{setosa}, \text{versicolor}, \text{virginica}\}
 </div>
 </div>
 <p>A summary of the dataset is shown below:</p>
-<div id="171239f7" class="cell" data-execution_count="2">
+<div id="d84cf1f2" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -814,7 +818,7 @@ y_i \in \{\text{setosa}, \text{versicolor}, \text{virginica}\}
 <blockquote class="blockquote">
 <p>Pairwise Relationships</p>
 </blockquote>
-<div id="ee387864" class="cell" data-execution_count="3">
+<div id="78a197a7" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sns.pairplot(df, hue<span class="op">=</span><span class="st">'species'</span>)</span>
@@ -831,7 +835,7 @@ y_i \in \{\text{setosa}, \text{versicolor}, \text{virginica}\}
 <blockquote class="blockquote">
 <p>Feature Distributions</p>
 </blockquote>
-<div id="aa72eee2" class="cell" data-execution_count="4">
+<div id="3a02c8fe" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df.hist(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">6</span>), bins<span class="op">=</span><span class="dv">10</span>)</span>
@@ -849,7 +853,7 @@ y_i \in \{\text{setosa}, \text{versicolor}, \text{virginica}\}
 <blockquote class="blockquote">
 <p>Correlation Heatmap</p>
 </blockquote>
-<div id="49e2bf89" class="cell" data-execution_count="5">
+<div id="4b0ba599" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sns.heatmap(df.corr(numeric_only<span class="op">=</span><span class="va">True</span>), annot<span class="op">=</span><span class="va">True</span>)</span>
