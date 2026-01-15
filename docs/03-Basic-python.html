@@ -270,13 +270,16 @@ window.Quarto = {
 </header>
 
 
+<div style="width: 80%; text-align: center;">
+<p><img src="QRcode.png" alt="A descriptive text for the image" style="width: 80%; height: auto; max-width: 1000px; display: block; margin: 0 auto;"></p>
+</div>
 <section id="aim" class="level2">
 <h2 class="anchored" data-anchor-id="aim">Aim</h2>
 <p>To study and implement basic numerical computation, symbolic mathematics and graphical visualization using <code>Python</code> libraries such as <code>NumPy</code>, <code>SymPy</code> and <code>Matplotlib</code>.</p>
 <section id="basic-usage-of-numpy" class="level3">
 <h3 class="anchored" data-anchor-id="basic-usage-of-numpy">Basic Usage of Numpy</h3>
 <p>NumPy (Numerical Python) is the foundational library for scientific computing in Python. It provides support for large, multi-dimensional arrays and matrices, along with a collection of mathematical functions to operate on these arrays efficiently. In this section, basic mathematical operations are transleted to <code>python</code>. For this simulation examples <code>Numpy</code> library will be used.</p>
-<div id="8fc3b06e" class="cell" data-execution_count="1">
+<div id="3a271fb9" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -299,7 +302,7 @@ Formatting output
 <section id="mathematical-functions" class="level3">
 <h3 class="anchored" data-anchor-id="mathematical-functions">Mathematical Functions</h3>
 <p><code>NumPy</code> allows us to perform element-wise mathematical operations on arrays without using loops. &gt;<strong>Simulating a basic mathematics functions, <span class="math inline">\(y=f(x)\)</span> in data driven approach</strong></p>
-<div id="e4cd60ca" class="cell" data-execution_count="2">
+<div id="283745f7" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sine function</span></span>
@@ -326,7 +329,7 @@ Square Root Values: [1.         1.41421356 1.73205081]</code></pre>
 <section id="array-manipulation" class="level3">
 <h3 class="anchored" data-anchor-id="array-manipulation">Array Manipulation</h3>
 <p>Understanding how to structure data is crucial. We can reshape arrays to change their dimensions or access specific elements using indexing and slicing.</p>
-<div id="b3b6ab31" class="cell" data-execution_count="3">
+<div id="7d17d087" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reshaping a 1D array to 2D</span></span>
@@ -359,7 +362,7 @@ Elements at indices 0, 2, 4: [1 3 5]</code></pre>
 <section id="aggregation-functions" class="level3">
 <h3 class="anchored" data-anchor-id="aggregation-functions">Aggregation Functions</h3>
 <p>These functions allow us to summarize data by computing statistics like sums, means, or finding extreme values.</p>
-<div id="ab5d5956" class="cell" data-execution_count="4">
+<div id="f8467e83" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sum of elements</span></span>
@@ -385,7 +388,7 @@ Min: 1</code></pre>
 <section id="broadcasting" class="level3">
 <h3 class="anchored" data-anchor-id="broadcasting">Broadcasting</h3>
 <p>Broadcasting is a powerful mechanism that allows <code>NumPy</code> to work with arrays of different shapes during arithmetic operations. It automatically “stretches” the smaller array to match the larger one.</p>
-<div id="189ee452" class="cell" data-execution_count="5">
+<div id="1a70e313" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Broadcasting a scalar value</span></span>
@@ -414,7 +417,7 @@ Min: 1</code></pre>
 <section id="basic-symbolic-computation" class="level4">
 <h4 class="anchored" data-anchor-id="basic-symbolic-computation">Basic Symbolic Computation</h4>
 <p>We start by defining symbolic variables and manipulating algebraic expressions.</p>
-<div id="3694ca2d" class="cell" data-execution_count="6">
+<div id="f492338c" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
@@ -443,7 +446,7 @@ Expanded expression: x**2 + 2*x + 1</code></pre>
 <section id="solving-equations" class="level3">
 <h3 class="anchored" data-anchor-id="solving-equations">Solving Equations</h3>
 <p>SymPy can find exact roots of algebraic equations.</p>
-<div id="9e9b4be2" class="cell" data-execution_count="7">
+<div id="07d1024c" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define equation: x^2 - 4 = 0</span></span>
@@ -461,7 +464,7 @@ Expanded expression: x**2 + 2*x + 1</code></pre>
 <section id="calculus" class="level3">
 <h3 class="anchored" data-anchor-id="calculus">Calculus</h3>
 <p><code>SymPy</code> excels at performing derivatives and integrals symbolically.</p>
-<div id="db4eb8c8" class="cell" data-execution_count="8">
+<div id="90e3ebc7" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a function</span></span>
@@ -484,7 +487,7 @@ Integral: exp(x)*sin(x)/2 - exp(x)*cos(x)/2</code></pre>
 <section id="limits-and-series-expansion" class="level3">
 <h3 class="anchored" data-anchor-id="limits-and-series-expansion">Limits and Series Expansion</h3>
 <p>We can also compute limits and Taylor series expansions, which are essential for approximation theory.</p>
-<div id="278a4373" class="cell" data-execution_count="9">
+<div id="5a4a5932" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Limit of sin(x)/x as x approaches 0</span></span>
@@ -510,7 +513,7 @@ Series expansion: 1 + x + x**2/2 + x**3/6 + x**4/24 + x**5/120 + O(x**6)</code><
 <section id="basic-plots-line-and-scatter" class="level3">
 <h3 class="anchored" data-anchor-id="basic-plots-line-and-scatter">Basic Plots (Line and Scatter)</h3>
 <p>Line plots are used for continuous data, while scatter plots are best for discrete data points.</p>
-<div id="d982c7ab" class="cell" data-execution_count="10">
+<div id="7655a8d3" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -552,7 +555,7 @@ Series expansion: 1 + x + x**2/2 + x**3/6 + x**4/24 + x**5/120 + O(x**6)</code><
 <section id="categorical-and-distribution-plots" class="level3">
 <h3 class="anchored" data-anchor-id="categorical-and-distribution-plots">Categorical and Distribution Plots</h3>
 <p>Bar charts compare categories, while histograms show the frequency distribution of continuous data.</p>
-<div id="d52855e1" class="cell" data-execution_count="11">
+<div id="d4aaccdd" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bar Plot</span></span>
@@ -587,7 +590,7 @@ Series expansion: 1 + x + x**2/2 + x**3/6 + x**4/24 + x**5/120 + O(x**6)</code><
 <section id="pie-chart-and-customization" class="level3">
 <h3 class="anchored" data-anchor-id="pie-chart-and-customization">Pie Chart and Customization</h3>
 <p>Pie charts visualize proportions. You can also heavily customize plots (colors, line styles, markers) to improve readability.</p>
-<div id="b46cd4f2" class="cell" data-execution_count="12">
+<div id="0618f531" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pie Chart</span></span>
@@ -621,7 +624,7 @@ Series expansion: 1 + x + x**2/2 + x**3/6 + x**4/24 + x**5/120 + O(x**6)</code><
 </section>
 <section id="solving-linear-system-graphically" class="level3">
 <h3 class="anchored" data-anchor-id="solving-linear-system-graphically">Solving linear system graphically</h3>
-<div id="05576a08" class="cell" data-execution_count="13">
+<div id="15892ea0" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">## visualization as intersection of line joining</span></span>
@@ -656,7 +659,7 @@ Series expansion: 1 + x + x**2/2 + x**3/6 + x**4/24 + x**5/120 + O(x**6)</code><
 <blockquote class="blockquote">
 <p><strong>Plotting a matrix as an image</strong> This is a matrix which is an image. Here each square corresponds to one item in the matrix, and color of each square corresponds to the value of element in the matrix.</p>
 </blockquote>
-<div id="ada371ac" class="cell" data-execution_count="14">
+<div id="01854a42" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>I<span class="op">=</span>np.matrix([[<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>],[<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>],[<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>],[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>],[<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>]])</span>
@@ -682,7 +685,7 @@ Series expansion: 1 + x + x**2/2 + x**3/6 + x**4/24 + x**5/120 + O(x**6)</code><
 </section>
 <section id="creating-a-random-grayscale-image" class="level3">
 <h3 class="anchored" data-anchor-id="creating-a-random-grayscale-image">Creating a random grayscale image</h3>
-<div id="80d41969" class="cell" data-execution_count="15">
+<div id="fe119e30" class="cell" data-execution_count="15">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>V<span class="op">=</span>np.random.randint(<span class="dv">1</span>,<span class="dv">255</span>,size<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">4</span>))</span>
@@ -691,11 +694,11 @@ Series expansion: 1 + x + x**2/2 + x**3/6 + x**4/24 + x**5/120 + O(x**6)</code><
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[[ 42  97 121 176]
- [248   5 160 158]
- [ 41  70  23 247]
- [200  41 214  29]
- [ 21  85  59 183]]</code></pre>
+<pre><code>[[ 72 193  46 190]
+ [184  16  59  79]
+ [ 42 206 114  94]
+ [210 142  76 219]
+ [ 50  39 212  41]]</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -708,7 +711,7 @@ Series expansion: 1 + x + x**2/2 + x**3/6 + x**4/24 + x**5/120 + O(x**6)</code><
 </section>
 <section id="basic-image-processing-and-matrix-operations" class="level3">
 <h3 class="anchored" data-anchor-id="basic-image-processing-and-matrix-operations">Basic image Processing and Matrix operations</h3>
-<div id="3e2654f0" class="cell" data-execution_count="16">
+<div id="b1aceb73" class="cell" data-execution_count="16">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">##loading an image and show it using matrices of pixel values</span></span>
@@ -733,7 +736,7 @@ Series expansion: 1 + x + x**2/2 + x**3/6 + x**4/24 + x**5/120 + O(x**6)</code><
 </section>
 <section id="frequency-distribution-of-channel-1-pixel-values" class="level3">
 <h3 class="anchored" data-anchor-id="frequency-distribution-of-channel-1-pixel-values">Frequency distribution of channel 1 pixel values</h3>
-<div id="044101d5" class="cell" data-execution_count="17">
+<div id="099f9603" class="cell" data-execution_count="17">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -751,7 +754,7 @@ Series expansion: 1 + x + x**2/2 + x**3/6 + x**4/24 + x**5/120 + O(x**6)</code><
 </section>
 <section id="another-method-to-load-the-colour-image-and-convert-to-grayscale" class="level3">
 <h3 class="anchored" data-anchor-id="another-method-to-load-the-colour-image-and-convert-to-grayscale">Another method to load the colour image and convert to grayscale</h3>
-<div id="36c0b9f7" class="cell" data-execution_count="18">
+<div id="4ea6bc14" class="cell" data-execution_count="18">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> PIL <span class="im">import</span> Image</span>
@@ -763,7 +766,7 @@ Series expansion: 1 + x + x**2/2 + x**3/6 + x**4/24 + x**5/120 + O(x**6)</code><
 <span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>img <span class="op">=</span> Image.<span class="bu">open</span>(<span class="st">"input.jpg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="4ed0dacb" class="cell" data-execution_count="19">
+<div id="f2a984e4" class="cell" data-execution_count="19">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>imggray <span class="op">=</span> img.convert(<span class="st">'LA'</span>)</span>
@@ -778,7 +781,7 @@ Series expansion: 1 + x + x**2/2 + x**3/6 + x**4/24 + x**5/120 + O(x**6)</code><
 </div>
 </div>
 </div>
-<div id="385163e7" class="cell" data-execution_count="20">
+<div id="2e9a7c74" class="cell" data-execution_count="20">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>imgmat <span class="op">=</span> np.array(<span class="bu">list</span>(imggray.getdata(band<span class="op">=</span><span class="dv">0</span>)), <span class="bu">float</span>)</span>
@@ -793,7 +796,7 @@ Series expansion: 1 + x + x**2/2 + x**3/6 + x**4/24 + x**5/120 + O(x**6)</code><
 </div>
 </div>
 </div>
-<div id="2082222b" class="cell" data-execution_count="21">
+<div id="13873ac0" class="cell" data-execution_count="21">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">3</span>))</span>
@@ -813,7 +816,7 @@ Series expansion: 1 + x + x**2/2 + x**3/6 + x**4/24 + x**5/120 + O(x**6)</code><
 </div>
 </div>
 </div>
-<div id="57710cf9" class="cell" data-execution_count="22">
+<div id="d602ccb7" class="cell" data-execution_count="22">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">## an application of matrix addition</span></span>
@@ -828,7 +831,7 @@ Series expansion: 1 + x + x**2/2 + x**3/6 + x**4/24 + x**5/120 + O(x**6)</code><
 </div>
 </div>
 </div>
-<div id="e8232cd2" class="cell" data-execution_count="23">
+<div id="87d4331a" class="cell" data-execution_count="23">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">## an application of matrix multiplication</span></span>
@@ -843,7 +846,7 @@ Series expansion: 1 + x + x**2/2 + x**3/6 + x**4/24 + x**5/120 + O(x**6)</code><
 </div>
 </div>
 </div>
-<div id="223b9ff0" class="cell" data-execution_count="24">
+<div id="939ab348" class="cell" data-execution_count="24">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">## an application of hadamads multiplication</span></span>
@@ -861,7 +864,7 @@ Series expansion: 1 + x + x**2/2 + x**3/6 + x**4/24 + x**5/120 + O(x**6)</code><
 </section>
 <section id="applying-a-random-mask-on-the-image" class="level3">
 <h3 class="anchored" data-anchor-id="applying-a-random-mask-on-the-image">Applying a random mask on the image</h3>
-<div id="15021530" class="cell" data-execution_count="25">
+<div id="97b06476" class="cell" data-execution_count="25">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Pr=np.random.randint(1,3,size=c2.shape)</span></span>
@@ -871,13 +874,13 @@ Series expansion: 1 + x + x**2/2 + x**3/6 + x**4/24 + x**5/120 + O(x**6)</code><
 <span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[[ 1.012e+03  1.068e+03  8.640e+02 ...  1.000e+00  1.083e+03 -2.489e+03]
- [-1.300e+02 -3.080e+02  1.703e+03 ...  1.300e+01  1.191e+03 -1.374e+03]
- [-1.377e+03  1.874e+03 -8.890e+02 ... -3.027e+03  2.181e+03  8.080e+02]
+<pre><code>[[-1.670e+03 -3.830e+02  1.546e+03 ... -4.150e+02  3.340e+02 -1.211e+03]
+ [ 1.100e+03  3.164e+03 -6.270e+02 ... -2.910e+02 -3.040e+02 -3.860e+02]
+ [-5.900e+02  3.558e+03  7.490e+02 ... -1.298e+03  9.640e+02 -1.571e+03]
  ...
- [-3.280e+02 -5.700e+01 -2.140e+02 ... -1.006e+03  2.817e+03 -2.685e+03]
- [ 3.019e+03 -1.127e+03 -2.963e+03 ...  9.280e+02 -2.867e+03 -1.213e+03]
- [-7.050e+02 -1.796e+03 -1.075e+03 ...  1.240e+03  1.810e+02  3.230e+02]]</code></pre>
+ [ 9.840e+02  3.970e+02  2.797e+03 ... -1.542e+03  3.148e+03  2.322e+03]
+ [-5.330e+02 -1.637e+03  9.990e+02 ...  8.710e+02 -3.000e+00  2.320e+02]
+ [ 1.592e+03  3.977e+03 -1.292e+03 ... -2.010e+03 -1.071e+03 -6.970e+02]]</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -887,7 +890,7 @@ Series expansion: 1 + x + x**2/2 + x**3/6 + x**4/24 + x**5/120 + O(x**6)</code><
 </div>
 </div>
 </div>
-<div id="de76bcf5" class="cell" data-execution_count="26">
+<div id="95505994" class="cell" data-execution_count="26">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">## noising an image using matrix addition</span></span>
@@ -903,7 +906,7 @@ Series expansion: 1 + x + x**2/2 + x**3/6 + x**4/24 + x**5/120 + O(x**6)</code><
 </div>
 </div>
 </div>
-<div id="44c754ed" class="cell" data-execution_count="27">
+<div id="7f9a8dde" class="cell" data-execution_count="27">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co">##de-noising an image using matrix operation</span></span>
@@ -926,7 +929,7 @@ Series expansion: 1 + x + x**2/2 + x**3/6 + x**4/24 + x**5/120 + O(x**6)</code><
 <section id="digital-communication-signal-processing" class="level3">
 <h3 class="anchored" data-anchor-id="digital-communication-signal-processing">Digital Communication: Signal Processing</h3>
 <p>Problem: Store signal samples, reshape them into time frames, and compute signal statistics (Max, Min, Average).</p>
-<div id="d01883f6" class="cell" data-execution_count="28">
+<div id="0818c438" class="cell" data-execution_count="28">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -956,7 +959,7 @@ Average Signal Value: 2.6</code></pre>
 <section id="antenna-theory-radiation-intensity" class="level3">
 <h3 class="anchored" data-anchor-id="antenna-theory-radiation-intensity">Antenna Theory: Radiation Intensity</h3>
 <p>Problem: Compute radiation intensity proportional to <span class="math inline">\(\sin(\theta)\)</span> for specific angles.</p>
-<div id="52af2f77" class="cell" data-execution_count="29">
+<div id="19d29f31" class="cell" data-execution_count="29">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Angles in radians: 0, pi/4, pi/2, pi</span></span>
@@ -977,7 +980,7 @@ Radiation Intensity: [0.00000000e+00 7.07106781e-01 1.00000000e+00 1.22464680e-1
 <section id="circuit-analysis-node-voltage" class="level3">
 <h3 class="anchored" data-anchor-id="circuit-analysis-node-voltage">Circuit Analysis: Node Voltage</h3>
 <p>Problem: Solve the node voltage equation <span class="math inline">\(2V - 10 = 0\)</span> symbolically.</p>
-<div id="2390e1a9" class="cell" data-execution_count="30">
+<div id="f18cad1d" class="cell" data-execution_count="30">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
@@ -999,7 +1002,7 @@ Radiation Intensity: [0.00000000e+00 7.07106781e-01 1.00000000e+00 1.22464680e-1
 <section id="filter-analysis-frequency-response" class="level3">
 <h3 class="anchored" data-anchor-id="filter-analysis-frequency-response">Filter Analysis: Frequency Response</h3>
 <p>Problem: Visualize the output voltage of a filter against frequency.</p>
-<div id="0a065883" class="cell" data-execution_count="31">
+<div id="6db24192" class="cell" data-execution_count="31">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1029,7 +1032,7 @@ Radiation Intensity: [0.00000000e+00 7.07106781e-01 1.00000000e+00 1.22464680e-1
 <section id="communication-channel-noise-distribution" class="level3">
 <h3 class="anchored" data-anchor-id="communication-channel-noise-distribution">Communication Channel: Noise Distribution</h3>
 <p>Problem: Analyze the distribution of random noise samples using a histogram.</p>
-<div id="6fd561d6" class="cell" data-execution_count="32">
+<div id="3475617b" class="cell" data-execution_count="32">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Noise samples</span></span>

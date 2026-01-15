@@ -18,6 +18,13 @@ execute:
 jupyter: python3
 ---
 
+
+<div style="width: 80%; text-align: center;">
+  <img src="QRcode.png" 
+       alt="A descriptive text for the image" 
+       style="width: 80%; height: auto; max-width: 1000px; display: block; margin: 0 auto;">
+</div>
+
 ## Aim
 
 To study and implement basic numerical computation, symbolic mathematics and graphical visualization using `Python` libraries such as `NumPy`, `SymPy` and `Matplotlib`.
