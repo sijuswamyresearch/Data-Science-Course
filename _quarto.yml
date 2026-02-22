@@ -14,6 +14,8 @@ website:
         menu:
           - text: "Module 0: Python Basic"
             href: 03-Basic-python.qmd
+          - text: "Module 0.5: Engineering Problem"
+            href: 03a-Enginnering_problem.qmd
           - text: "Module 1: Data Foundations"
             href: 01-eda-math.qmd
           - text: "Module 2: ML Core & Optimization"

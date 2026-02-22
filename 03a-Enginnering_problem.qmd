@@ -1,0 +1,248 @@
+---
+title: "The Phantom Voltage: How Green's Theorem Saves Your Circuit Board"
+subtitle: "Real-World Application of Green's Theorem in PCB Design and Electromagnetic Interference"
+bibliography: reference.bib
+format:
+  html:
+    theme: yeti
+    toc: true
+    toc-depth: 3
+    smooth-scroll: true
+    code-fold: true
+author: "Siju Swamy"
+
+execute:
+  echo: true
+  warning: false
+  message: false
+jupyter: python3
+---
+
+## The 2:00 AM Crisis
+
+Imagine it is 2:00 AM in the university electronics lab. Your senior capstone project—a portable, ultra-low-power ECG heart monitor—is due in three days. You’ve just finished soldering the first prototype. You power it up, connect the electrodes, and look at the oscilloscope screen. 
+
+Instead of a clean, rhythmic heartbeat, you see a jagged, chaotic mess of noise. Your circuit is useless. What went wrong?
+
+You pull up your Printed Circuit Board (PCB) layout on your monitor. Your design contains two completely different worlds living right next to each other on a tiny 2-inch fiberglass board:
+
+1. **The Digital World:** A high-speed microcontroller and a clock signal toggling millions of times per second (MHz).
+2. **The Analog World:** A delicate amplifier circuit designed to read micro-volt ($10^{-6}$ V) electrical signals from the human heart.
+
+
+
+Looking closely at your layout, you notice a critical flaw. The copper traces connecting your analog amplifier accidentally form a closed geometric shape—a loop. 
+
+## The Physics of the Phantom Noise
+
+Whenever your digital clock switches from LOW to HIGH, it draws a sharp spike of current. According to the laws of electromagnetism, this changing current generates a time-varying magnetic field ($B_z$) that ripples outward, sweeping right across the surface of your board. 
+
+When this changing magnetic field pierces through your closed analog copper loop, it induces a swirling 2D Electric Field ($\mathbf{E}$) across the surface of the PCB. If this swirling electric field pushes electrons around your analog loop, it creates an unwanted "noise voltage" ($V_{noise}$). This is the phantom voltage drowning out your heartbeat signal!
+
+To fix the board, you need to know exactly how much noise is being generated. Mathematically, the total noise voltage is the **Line Integral** of the induced electric field vector $\mathbf{E}(x,y) = E_x\mathbf{i} + E_y\mathbf{j}$ along the closed path of your copper trace ($C$).
+
+$$V_{noise} = \oint_C (E_x \, dx + E_y \, dy)$$
+
+## The Computational Nightmare
+
+You sit down with a pencil to calculate this line integral. Immediately, you realize the problem: your copper trace is not a perfect circle. It’s a jagged, irregular polygon with sharp 90-degree turns, varying widths, and complex routing around microchips. 
+
+
+
+Trying to parameterize this jagged 1D path $C$ and integrate the vector field along it is mathematically exhausting and computationally expensive. If you were to write a Python script to do this directly, it would require breaking the path into hundreds of tiny segments, computing the dot product at each one, and summing them up. Every time you move a component on the board, you'd have to recalculate the entire complex path.
+
+## Enter George Green
+
+This is where the abstract calculus you learned in your sophomore year suddenly becomes your most powerful engineering tool. 
+
+In 1828, mathematician George Green proved that you don't actually need to walk the complex boundary of a loop to know the total force pushing along it. Instead, you can look at the 2D area *inside* the loop.
+
+Green’s Theorem states that the macroscopic circulation along the outer boundary ($C$) is exactly equal to the sum of all the microscopic rotations—the 2D curl—happening everywhere inside the enclosed region ($D$).
+
+$$\oint_C (E_x \, dx + E_y \, dy) = \iint_D \left( \frac{\partial E_y}{\partial x} - \frac{\partial E_x}{\partial y} \right) dA$$
+
+
+
+## From Calculus to Electronic Design Automation (EDA)
+
+Why does this save your project? Because computers are incredibly good at calculating areas, but very bad at tracing complex vector paths. 
+
+When you use professional Electronic Design Automation (EDA) software to simulate Electromagnetic Interference (EMI), the software rarely calculates the line integral along the trace. Instead, it uses Green's Theorem!
+
+1. **The Grid:** The software divides the empty fiberglass area *inside* your copper loop ($D$) into a simple 2D grid of pixels (a mesh). 
+2. **The Double Integral:** It calculates the changing magnetic flux—which relates directly to the curl of the electric field $\left( \frac{\partial E_y}{\partial x} - \frac{\partial E_x}{\partial y} \right)$—at each tiny pixel inside the loop.
+3. **The Sum:** It simply adds up the values of all those pixels (the double integral).
+
+Thanks to Green's Theorem, the sum of the interference happening *inside* the empty area exactly equals the phantom noise voltage pushing along the copper *boundary*. 
+
+Armed with this knowledge, you don't need to do the math by hand. You simply run the EDA simulation. The software highlights the area inside your loop in bright red, showing high magnetic flux. You realize that to lower the line integral ($V_{noise}$), you just need to reduce the area ($D$) of the double integral! 
+
+You route the analog traces closer together, shrinking the physical area of the loop. You print the new board, power it up, and the oscilloscope shows a perfect, clean heartbeat. 
+
+Green's Theorem didn't just stay in the pages of your calculus textbook. It became the secret weapon that saved your capstone project and ensured that your ECG monitor could accurately read the human heart without being drowned out by digital noise.
+
+## Mathematical Formulation: The "Impossible" Phantom Voltage
+
+Let us translate our 2:00 AM engineering crisis into a concrete mathematical problem. 
+
+**The Given Scenario:**
+You have a rectangular copper trace (the analog sensor loop) on your PCB. Let’s place the bottom-left corner of this loop at the origin of an $xy$-coordinate plane. 
+
+* The loop has a width of $20\text{ mm}$ along the x-axis.
+* The loop has a height of $10\text{ mm}$ along the y-axis.
+* Therefore, the boundary $C$ is a rectangle with vertices at $(0,0)$, $(20,0)$, $(20,10)$, and $(0,10)$, traversed counterclockwise.
+
+
+
+Due to the nearby switching digital clock, a highly complex induced electric field $\mathbf{E}$ sweeps across the board. Based on the electromagnetic simulation, the field (measured in milliVolts per millimeter, $\text{mV/mm}$) is modeled by the following vector equation:
+
+$$\mathbf{E}(x,y) = \left( y + e^{x^2} \right)\mathbf{i} + \left( 4x - \ln(y^2 + 1) \right)\mathbf{j}$$
+
+**The Goal:**
+Find the total induced noise voltage $V_{noise}$ pushing around the closed loop $C$. 
+Mathematically, this is the line integral:
+$$V_{noise} = \oint_C \mathbf{E} \cdot d\mathbf{r} = \oint_C \left( y + e^{x^2} \right)dx + \left( 4x - \ln(y^2 + 1) \right)dy$$
+
+
+### Attempt 1: The Direct Line Integral (The Hard Way)
+
+To solve this directly, you must break the rectangle $C$ into four separate path segments ($C_1$ bottom, $C_2$ right, $C_3$ top, $C_4$ left), parameterize each one, and compute four separate integrals. 
+
+Let's look at just the first segment, $C_1$ (from $x=0$ to $x=20$, where $y=0$ and $dy=0$):
+$$\int_{C_1} = \int_{0}^{20} \left( 0 + e^{x^2} \right)dx$$
+
+**We immediately hit a wall.** The function $e^{x^2}$ has no elementary antiderivative. It is mathematically impossible to solve this integral using standard calculus techniques. The direct line integral method has completely failed us.
+
+
+
+### Attempt 2: Using Green's Theorem (The Smart Way)
+
+Instead of struggling with the impossible boundary, we apply Green's Theorem to look at the area $D$ *inside* the rectangular loop.
+
+
+
+Green's Theorem tells us:
+$$\oint_C (P \, dx + Q \, dy) = \iint_D \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) dA$$
+
+**Step 1: Identify $P$ and $Q$**
+
+* $P(x,y) = y + e^{x^2}$
+* $Q(x,y) = 4x - \ln(y^2 + 1)$
+
+**Step 2: Compute the partial derivatives (The 2D Curl)**
+Notice what happens when we take the derivatives. The terms that were impossible to integrate simply vanish!
+
+* $\frac{\partial P}{\partial y} = \frac{\partial}{\partial y}(y + e^{x^2}) = 1 + 0 = 1$
+* $\frac{\partial Q}{\partial x} = \frac{\partial}{\partial x}(4x - \ln(y^2 + 1)) = 4 - 0 = 4$
+
+The 2D curl is exactly:
+$$\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} = 4 - 1 = 3$$
+
+**Step 3: Set up and solve the Double Integral**
+The region $D$ is just a rectangle where $0 \le x \le 20$ and $0 \le y \le 10$.
+
+$$V_{noise} = \iint_D (3) \, dA$$
+
+Because the integrand is just a constant (3), we can pull it out. The double integral of $1 \, dA$ is simply the total area of the rectangle!
+
+$$V_{noise} = 3 \times \iint_D dA$$
+$$V_{noise} = 3 \times (\text{Area of Rectangle})$$
+$$V_{noise} = 3 \times (20 \times 10) = 3 \times 200 = 600 \text{ mV}$$
+
+### The Engineering Conclusion
+
+By using Green's Theorem, an impossible calculus problem was reduced to basic arithmetic. We quickly determined that the induced phantom noise is **$600 \text{ mV}$** (or $0.6 \text{ V}$). 
+
+Since an ECG signal is typically only about $1 \text{ mV}$, this $600 \text{ mV}$ noise completely overwhelms the sensor. To fix the circuit design, you must reduce the physical area of the loop ($200 \text{ mm}^2$) until the resulting voltage drops well below your sensitive heartbeat signal!
+
+
+## Python Implementation: Solving the EMI Problem
+
+First, we will use Python's symbolic mathematics library (`sympy`) to compute the 2D Curl and perform the double integration over the rectangular area.
+
+```{python}
+import sympy as sp
+
+# Step 1: Define the variables
+x, y = sp.symbols('x y')
+
+# Step 2: Define the complex electric vector field components (E_x, E_y)
+P = y + sp.exp(x**2)
+Q = 4*x - sp.log(y**2 + 1)
+
+# Step 3: Compute the partial derivatives for the 2D Curl (dQ/dx - dP/dy)
+dQ_dx = sp.diff(Q, x)
+dP_dy = sp.diff(P, y)
+curl_2d = dQ_dx - dP_dy
+
+print(f"The complex P term (E_x): {P}")
+print(f"The complex Q term (E_y): {Q}")
+print(f"The resulting 2D Curl is remarkably simple: {curl_2d}\\n")
+
+# Step 4: Set up the boundaries of the rectangular PCB loop
+x_limits = (x, 0, 20)  # Width is 20 mm
+y_limits = (y, 0, 10)  # Height is 10 mm
+
+# Step 5: Evaluate the Double Integral using Green's Theorem
+V_noise = sp.integrate(curl_2d, x_limits, y_limits)
+
+print(f"Total induced Phantom Noise Voltage (V_noise) = {V_noise} mV")
+```
+
+## Visualizing the Context
+
+Now, let's visualize the physical board. We will plot the vector field of the induced electric field and overlay the rectangular copper trace (the closed loop).
+
+:::{.callout-note}
+### Note
+Because $e^{x^2}$ grows so astronomically fast, standard plotting tools will trigger a float overflow. To make the vector field readable, we normalize the arrows so you can clearly see the direction and "swirl" of the field pushing against the board.
+:::
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.patches import Rectangle
+
+# 1. Create a grid of points on the PCB (from x=-5 to 25, y=-5 to 15)
+x_vals = np.linspace(-5, 25, 25)
+y_vals = np.linspace(-5, 15, 20)
+X, Y = np.meshgrid(x_vals, y_vals)
+
+# 2. Compute the vector field at the grid points
+# We clip the X term slightly just for visualization to prevent numpy float overflow
+U = Y + np.exp(np.clip(X**2, a_min=None, a_max=5)) 
+V = 4*X - np.log(Y**2 + 1)
+
+# 3. Normalize the vectors (so arrows show direction clearly without overlapping massively)
+magnitude = np.sqrt(U**2 + V**2)
+U_norm = U / magnitude
+V_norm = V / magnitude
+
+# 4. Set up the plot
+fig, ax = plt.subplots(figsize=(10, 6))
+
+# Plot the vector field using quiver
+quiver = ax.quiver(X, Y, U_norm, V_norm, magnitude, cmap='viridis', alpha=0.8)
+fig.colorbar(quiver, ax=ax, label='Relative Field Strength')
+
+# 5. Draw the physical PCB copper trace (The 20x10 Rectangle)
+pcb_loop = Rectangle((0, 0), 20, 10, 
+                     linewidth=3, edgecolor='red', facecolor='red', alpha=0.2, 
+                     label='Analog Sensor Loop (Trace)')
+ax.add_patch(pcb_loop)
+
+# 6. Add labels, grid, and formatting
+ax.set_title("Electromagnetic Interference (EMI) Vector Field & PCB Loop", fontsize=14)
+ax.set_xlabel("x-axis (mm)")
+ax.set_ylabel("y-axis (mm)")
+ax.axhline(0, color='black', linewidth=1)
+ax.axvline(0, color='black', linewidth=1)
+
+ax.set_xlim(-5, 25)
+ax.set_ylim(-5, 15)
+ax.grid(True, linestyle='--', alpha=0.6)
+ax.legend(loc='upper left')
+
+plt.tight_layout()
+plt.show()
+```

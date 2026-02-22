@@ -477,4 +477,324 @@ plt.title("Noise Distribution in Channel")
 plt.show()
 ```
 
+## Vector Calculus Using `Python`
 
+## **Experiment No.6**
+
+### **The Narrative of the Line Integral**
+
+Imagine you are a pilot flying a small aircraft through a turbulent storm, or perhaps a hiker wading through a river where the water currents constantly shift in speed and direction. At every single point in space, there is a force acting upon you—a specific magnitude and a specific direction. In mathematics, this environment is called a **vector field**. 
+
+Now, suppose you want to calculate exactly how much the river's current helped or hindered you along your specific path from point A to point B. You cannot simply multiply the force by the distance, because both the river's current and your direction are constantly changing. 
+
+To solve this, calculus gives us the **Line Integral**. 
+
+
+
+A line integral chops your winding path (let's call it $C$) into infinitely small steps ($d\mathbf{r}$). At each tiny step, it takes the dot product of the vector field ($\mathbf{F}$) and your direction of movement. If the wind is at your back, the dot product is positive (it helps you). If the wind is in your face, it's negative (it hinders you). If it's blowing exactly sideways, it's zero. 
+
+By adding up all these infinitely small microscopic interactions along the curve, we get the total work done by the field along your path:
+$$\int_C \mathbf{F} \cdot d\mathbf{r}$$
+
+### **The Bridge to Two Dimensions: Green's Theorem**
+
+Now, let us change the scenario. Instead of traveling from A to B, suppose your path is a closed loop. You start and end at the exact same location, walking counterclockwise along a boundary $C$ that encloses a flat, 2D region $D$. 
+
+When you compute the line integral around this closed loop, you are measuring the **circulation**—the net tendency of the vector field to push you around that specific boundary.
+
+Calculating this boundary integral directly can often be tedious and mathematically exhausting. But in 1828, a self-taught mathematician and miller named George Green published a profound realization that would change physics and calculus forever. 
+
+Green realized that you don't actually need to walk the boundary to know the total circulation. Instead, you can look *inside* the region. 
+
+Imagine dividing the enclosed region $D$ into a grid of microscopic whirlpools. At every tiny point inside the region, the vector field has a local tendency to rotate, a property known as the **2D curl**. Green discovered that if you place all these microscopic whirlpools next to each other, their internal edges push against one another in opposite directions and cancel perfectly out. The only parts that *don't* cancel out are the edges on the very outside of the region.
+
+
+
+Therefore, the macroscopic circulation along the outer boundary is exactly equal to the sum of all the microscopic circulations (the curl) contained inside the area. This magnificent bridge between a 1D boundary and a 2D area is **Green's Theorem**.
+
+### **Statement of Green's Theorem**
+
+Let $C$ be a positively oriented (counterclockwise), piecewise-smooth, simple closed curve in a plane, and let $D$ be the region bounded by $C$. 
+
+If a vector field $\mathbf{F}(x,y) = P(x,y)\mathbf{i} + Q(x,y)\mathbf{j}$ has continuous partial derivatives on an open region that contains $D$, then Green's Theorem states:
+
+$$\oint_C (P \, dx + Q \, dy) = \iint_D \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) dA$$
+
+**Breaking down the formula:**
+
+* $\oint_C (P \, dx + Q \, dy)$ is the *Line Integral* around the closed boundary $C$. It represents the macroscopic circulation.
+* $\iint_D (\dots) dA$ is the *Double Integral* over the 2D area $D$ enclosed by the boundary.
+* $\left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right)$ is the **2D Curl** of the vector field, representing the microscopic rotation at any given point inside the region. 
+
+:::{.callout-note}
+### Note: 
+
+In the context of your computational experiment, Green's theorem is exactly what allows you to take the difficult 1D path integral along the edge of the unit circle and effortlessly solve it by integrating the area of the disk using polar coordinates!
+:::
+**Evaluate line integrals using Green’s theorem**
+
+**Aim**
+
+Evaluate the line integral of the vector field along a curve using Green’s theorem.
+
+**Algorithm**
+
+Step 1: Import the library Sympy, Numpy.
+
+Step 2: Define the Vector Field.
+
+Step 3: Define the region $𝐷$.
+
+Step 4: Compute the double integral in polar coordinates.
+
+Step 5: Compute the vector field at specific points.
+
+Step 6: Evaluate the vector field at each grid point.
+
+Step 7: Plot the vector field and the region $D$.
+
+
+>**Problem 1** Evaluate the line integral of the vector field $F(x,y)=(x^2-y,x+y^2)$ along the positively oriented unit circle $C$ defined by $x^2+y^2=1$ using Green's theorem.
+
+**Solution**
+
+```{python}
+import sympy as sp
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Define the variables
+x, y = sp.symbols('x y')
+
+# Define the vector field components
+P = x**2 - y
+Q = x + y**2
+
+# Compute the partial derivatives
+dQ_dx = sp.diff(Q, x)
+dP_dy = sp.diff(P, y)
+
+# Apply Green's theorem: double integral of (dQ/dx - dP/dy) over the region D
+integrand = dQ_dx - dP_dy
+
+# Define the region D: the unit disk x^2 + y^2 <= 1
+# We will use polar coordinates to simplify the integral
+
+r, theta = sp.symbols('r theta')
+x_polar = r * sp.cos(theta)
+y_polar = r * sp.sin(theta)
+
+# Change of variables: integrand in polar coordinates
+integrand_polar = integrand.subs({x: x_polar, y: y_polar}) * r
+
+# Define the limits for r and theta
+r_limits = (r, 0, 1)
+theta_limits = (theta, 0, 2 * sp.pi)
+
+# Compute the double integral in polar coordinates
+area_integral = sp.integrate(integrand_polar, r_limits, theta_limits)
+
+# Display the result
+area_integral
+```
+
+### Visualization of the Vector Field and Region D
+
+```{python}
+# Define the vector field components
+def P(x, y):
+    return x**2 - y
+
+def Q(x, y):
+    return x + y**2
+
+# Create a grid of points
+x_vals = np.linspace(-1.5, 1.5, 20)
+y_vals = np.linspace(-1.5, 1.5, 20)
+X, Y = np.meshgrid(x_vals, y_vals)
+
+# Compute the vector field at grid points
+U = P(X, Y)
+V = Q(X, Y)
+
+# Define the unit circle
+theta = np.linspace(0, 2*np.pi, 100)
+x_circle = np.cos(theta)
+y_circle = np.sin(theta)
+
+# Plot the vector field
+plt.figure(figsize=(8, 8))
+plt.quiver(X, Y, U, V, color='blue', alpha=0.5)
+
+# Plot the unit circle
+plt.plot(x_circle, y_circle, color='red', linewidth=2, label='Unit Circle')
+
+# Shade the area inside the unit circle
+plt.fill(x_circle, y_circle, 'red', alpha=0.2)
+
+# Add labels and legend
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.title('Vector Field and Unit Circle')
+plt.axhline(0, color='black',linewidth=0.5)
+plt.axvline(0, color='black',linewidth=0.5)
+plt.grid(color = 'gray', linestyle = '--', linewidth = 0.5)
+plt.legend()
+plt.axis('equal')
+plt.show()
+```
+
+### Result and Discussion
+
+Evaluated the line integral of the given vector field along the curve $C$ using Green’s theorem. Plotted the vector field and region $D$ using Numpy.
+
+**Application Problem: Computing Circulation in a Velocity Field using Green's Theorem**
+
+>**Problem Statement**
+
+Consider an airflow over a flat plate in a plane, such as in an aerodynamic testing scenario for aircraft wings or flat surfaces. The velocity field of the airflow is given by $F(x,y)=(-y,x)$. Determine the circulation of this airflow around an elliptical loop with semi-major axis $a$ and semi-minor axis $b$ (i.e.,$x^2/a^2 +y^2/b^2 =1$). [Understanding this circulation helps in analyzing the aerodynamic properties and the effects of airflow patterns around such shapes, which is crucial for optimizing designs and improving performance.]
+
+### Integrant Calculation using Green's Theorem
+```{python}
+# Define the variables
+x, y = sp.symbols('x y')
+
+# Define the vector field components
+P = - y
+Q = x
+
+# Compute the partial derivatives
+dQ_dx = sp.diff(Q, x)
+dP_dy = sp.diff(P, y)
+
+# Apply Green's theorem: double integral of (dQ/dx - dP/dy) over the region D
+integrand = dQ_dx - dP_dy
+
+integrand
+```
+
+### Visualization of the Vector Field and Elliptical Region
+
+```{python}
+# Define the vector field components
+def P(x, y):
+    return - y
+
+def Q(x, y):
+    return x
+
+# Create a grid of points
+x_vals = np.linspace(-5, 5, 20)
+y_vals = np.linspace(-5, 5, 20)
+X, Y = np.meshgrid(x_vals, y_vals)
+
+# Compute the vector field at grid points
+U = P(X, Y)
+V = Q(X, Y)
+
+# Define the unit circle
+theta = np.linspace(0, 2*np.pi, 100)
+x_ellipse = 3*np.cos(theta)
+y_ellipse = 4*np.sin(theta)
+
+# Plot the vector field
+plt.figure(figsize=(8, 8))
+plt.quiver(X, Y, U, V, color='blue', alpha=0.5)
+
+# Plot the ellipse
+plt.plot(x_ellipse, y_ellipse, color='red', linewidth=2, label='Ellipse')
+
+# Shade the area inside the ellipse
+plt.fill(x_ellipse, y_ellipse, 'red', alpha=0.2)
+
+# Add labels and legend
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.title('Vector Field and Ellipse')
+plt.axhline(0, color='black',linewidth=0.5)
+plt.axvline(0, color='black',linewidth=0.5)
+plt.grid(color = 'gray', linestyle = '--', linewidth = 0.5)
+plt.legend()
+plt.axis('equal')
+plt.show()
+```
+
+**Problem 2**
+
+Evaluate the line integral of the vector field $F(x,y)=(y^2−x,x^2+y)$ along the positively oriented circle $C:x^2+y^2=4$ using Green’s Theorem.
+
+```{python}
+import sympy as sp
+
+# Define variables
+x, y = sp.symbols('x y')
+
+# Define vector field
+P = y**2 - x
+Q = x**2 + y
+
+# Compute partial derivatives
+dQ_dx = sp.diff(Q, x)
+dP_dy = sp.diff(P, y)
+
+# Green's theorem integrand
+integrand = dQ_dx - dP_dy
+
+# Convert to polar coordinates
+r, theta = sp.symbols('r theta')
+x_polar = r * sp.cos(theta)
+y_polar = r * sp.sin(theta)
+
+integrand_polar = integrand.subs({x: x_polar, y: y_polar}) * r
+
+# Limits: circle of radius 2
+area_integral = sp.integrate(
+    integrand_polar,
+    (r, 0, 2),
+    (theta, 0, 2*sp.pi)
+)
+
+area_integral
+```
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Define vector field
+def P(x, y):
+    return y**2 - x
+
+def Q(x, y):
+    return x**2 + y
+
+# Grid
+x_vals = np.linspace(-2.5, 2.5, 20)
+y_vals = np.linspace(-2.5, 2.5, 20)
+X, Y = np.meshgrid(x_vals, y_vals)
+
+U = P(X, Y)
+V = Q(X, Y)
+
+# Circle of radius 2
+theta = np.linspace(0, 2*np.pi, 200)
+x_circle = 2 * np.cos(theta)
+y_circle = 2 * np.sin(theta)
+
+# Plot
+plt.figure(figsize=(8, 8))
+plt.quiver(X, Y, U, V, color='blue', alpha=0.5)
+
+plt.plot(x_circle, y_circle, color='red', linewidth=2, label='x² + y² = 4')
+plt.fill(x_circle, y_circle, 'red', alpha=0.2)
+
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.title('Vector Field and Circular Region')
+plt.axhline(0, color='black', linewidth=0.5)
+plt.axvline(0, color='black', linewidth=0.5)
+plt.grid(True, linestyle='--', alpha=0.6)
+plt.legend()
+plt.axis('equal')
+plt.show()
+```
