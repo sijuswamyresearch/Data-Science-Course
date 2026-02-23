@@ -673,6 +673,20 @@ integrand = dQ_dx - dP_dy
 integrand
 ```
 
+```{python}
+# Define the region D: the elliptical region x^2/a^2 + y^2/b^2 <= 1
+# Since integrand is 2, the value of the double intergral becomes 2*area of the ellipse
+# Let a=3 and b=4. Then area of the ellipse is pi*a*b=12*pi
+a=3;b=4
+Area_ellipse=sp.pi*a*b
+
+# Compute the double integral
+circulation = integrand * Area_ellipse
+
+# Display the result
+circulation
+```
+
 ### Visualization of the Vector Field and Elliptical Region
 
 ```{python}
